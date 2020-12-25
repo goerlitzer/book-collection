@@ -2,14 +2,8 @@
 
 /*
 Plugin Name: Book Collection
-Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
-Description: Entwicklung eines Plugins mit Nutzerverwaltung, Bücher anlegen/verwalten (Buchtitel, Coverbild, Buch in ca. 6 Sprachen), Impressum upload
-
-Userflow im CMS: User kann sich anmelden, ein Buch anlegen (Titel eingeben, Cover hochladen, 5-6 PDFs in verschiedenen Sprachen hochladen) und speichern. Er sollte auch ein Buch löschen und bearbeiten können (anderer Titel, PDF austauchen, Cover austauschen).
-
-Das dazugehörige Frontend, eine Webapplikation soll dann die Bücher in einer Art Galerie anzeigen und zum Lesen bereitstellen und ist nicht GEgenstand des Auftrags.
-
-Da der Endkunde Wordpess bei sich im Haus installiert hat, würde sich das anbieten. Wir denken uns, dass man dafür vielleicht ein Plugin schreiben kann und sind hier für Ideen/Anmerkungen offen. Ich bitte um Angebote zur preislichen Einschätzung.
+Plugin URI: https://larsgoerlitzer.de
+Description: Bücher-Sammlung
 Version: 0.1
 Author: Lars
 Author URI: https://larsgoerlitzer.de
@@ -26,14 +20,15 @@ defined( 'ABSPATH' ) or die( 'NO!' );
 add_action("wp_enqueue_scripts" ,"add_scripts");
 
 function add_scripts(){
-    wp_enqueue_style("add_style", plugins_url("style.css" , __FILE__));
-    wp_enqueue_script("add_script" , plugins_url("script.js", __FILE__));
+    wp_enqueue_style("add_style", plugins_url("css/style.css" , __FILE__), "", null);
+    wp_enqueue_script("add_script" , plugins_url("js/script.js", __FILE__), "", null);
 
 }
 
 /*
 * Creating a function to create our CPT
 */
+
 
 function custom_post_type() {
 
@@ -61,7 +56,8 @@ function custom_post_type() {
         'description'         => __( 'Büchersammulung', 'twentytwenty' ),
         'labels'              => $labels,
         // Features this CPT supports in Post Editor
-        'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', ),
+        //'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
         // You can associate this CPT with a taxonomy or custom taxonomy.
         'menu_icon' => 'dashicons-book-alt',
         /* A hierarchical CPT is like Pages and can have
@@ -69,7 +65,7 @@ function custom_post_type() {
         * is like Posts.
         */
         'hierarchical'        => false,
-        'public'              => true,
+        'public'              => false,
         'show_ui'             => true,
         'show_in_menu'        => true,
         'show_in_nav_menus'   => true,
@@ -186,3 +182,65 @@ function buch_admin_site(){
 }
 
 add_action("admin_menu" , "admin_menu");
+
+
+
+// >> Create Shortcode to Display Movies Post Types
+
+function diwp_create_shortcode_movies_post_type(){
+
+    $args = array(
+        'post_type'      => 'books',
+        'posts_per_page' => '10',
+        'publish_status' => 'published',
+    );
+
+$the_query = new WP_Query( $args );
+
+
+
+if ( $the_query->have_posts() ) :
+
+    // pagination here
+
+    // the loop
+     while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+
+        <div>
+            <div class="lgbc_book_cover">
+            <?php
+            if(the_post_thumbnail()){
+                the_post_thumbnail();
+            } else {
+
+
+                ?>
+                <img src="<?php echo plugin_dir_url( __FILE__ ) ?>/img/book_placeholder.svg">
+                <?php
+            }
+
+
+            ?>
+            </div>
+
+        <?php the_title(); ?>
+            <?php the_content(); ?>
+        </div>
+
+
+
+    <?php endwhile;
+    // end of the loop
+    // pagination here
+
+    wp_reset_postdata();
+
+ else : ?>
+    <p><?php _e( 'Es wurden keine Bücher gefunden.' ); ?></p>
+<?php endif;
+}
+
+add_shortcode( 'book-collection', 'diwp_create_shortcode_movies_post_type' );
+
+// shortcode code ends here
