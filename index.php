@@ -20,8 +20,8 @@ defined( 'ABSPATH' ) or die( 'NO!' );
 add_action("wp_enqueue_scripts" ,"add_scripts");
 
 function add_scripts(){
-    wp_enqueue_style("add_style", plugins_url("css/style.css" , __FILE__), "", null);
-    wp_enqueue_script("add_script" , plugins_url("js/script.js", __FILE__), "", null);
+    wp_enqueue_style("style", plugins_url("css/lgbc_style.css", __FILE__), "", null);
+    wp_enqueue_script("script" , plugins_url("js/lgbc_script.js", __FILE__), "", null);
 
 }
 
@@ -43,6 +43,8 @@ function custom_post_type() {
         'add_new_item'        => __( 'Buch hinzufügen', 'twentytwenty' ),
         'add_new'             => __( 'Hinzufügen', 'twentytwenty' ),
         'edit_item'           => __( 'Buch bearbeiten', 'twentytwenty' ),
+        'featured_image'        => __( 'Buchcover', 'textdomain' ),    //used in post.php
+        'set_featured_image'    => __( 'Buchcover hinzufügen', 'textdomain' ),    //used in post.php
         'update_item'         => __( 'Update Movie', 'twentytwenty' ),
         'search_items'        => __( 'Search Movie', 'twentytwenty' ),
         'not_found'           => __( 'Not Found', 'twentytwenty' ),
@@ -244,3 +246,6 @@ if ( $the_query->have_posts() ) :
 add_shortcode( 'book-collection', 'diwp_create_shortcode_movies_post_type' );
 
 // shortcode code ends here
+
+
+
