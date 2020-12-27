@@ -1,9 +1,11 @@
-p.schniecke-klasse{
+p.schniecke-klasse {
     color: red;
     background-color: black;
     padding: 10px;
     display: block;
 }
-.lgbc_book_cover img{
+
+.lgbc_book_cover img {
     width: 200px;
 }
+

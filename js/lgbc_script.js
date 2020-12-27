@@ -1,3 +1,3 @@
 // A $( document ).ready() block.
 
-    console.log( "ready!" );
+console.log("ready!");

@@ -1,7 +1,7 @@
 <?php
 // >> Create Shortcode to Display Movies Post Types
 
-function diwp_create_shortcode_movies_post_type(){
+function diwp_create_shortcode_movies_post_type() {
 
 	$args = array(
 		'post_type'      => 'books',
@@ -12,7 +12,6 @@ function diwp_create_shortcode_movies_post_type(){
 	$the_query = new WP_Query( $args );
 
 
-
 	if ( $the_query->have_posts() ) :
 
 		// pagination here
@@ -21,27 +20,26 @@ function diwp_create_shortcode_movies_post_type(){
 		while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
 
-			<div>
-				<div class="lgbc_book_cover">
+            <div>
+                <div class="lgbc_book_cover">
 					<?php
-					if(the_post_thumbnail()){
+					if ( the_post_thumbnail() ) {
 						the_post_thumbnail();
 					} else {
 
 
 						?>
-						<img src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/book_placeholder.svg">
+                        <img src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/book_placeholder.svg">
 						<?php
 					}
 
 
 					?>
-				</div>
+                </div>
 
 				<?php the_title(); ?>
 				<?php the_content(); ?>
-			</div>
-
+            </div>
 
 
 		<?php endwhile;
@@ -51,7 +49,7 @@ function diwp_create_shortcode_movies_post_type(){
 		wp_reset_postdata();
 
 	else : ?>
-		<p><?php _e( 'Es wurden keine Bücher gefunden.' ); ?></p>
+        <p><?php _e( 'Es wurden keine Bücher gefunden.' ); ?></p>
 	<?php endif;
 }
 

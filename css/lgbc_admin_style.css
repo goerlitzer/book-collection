@@ -1,0 +1,25 @@
+.lgbc_admin_padding_25 {
+    padding: 25px;
+}
+
+.lgbc_settings_head {
+    background-color: white;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.lgbc_settings_block_left,
+.lgbc_settings_block_middle,
+.lgbc_settings_block_right{
+    float: left;
+}
+.lgbc_settings_block_left {
+    width: 49%;
+
+}
+.lgbc_settings_block_middle{
+    width: 2%;
+    font-size: 0px;
+}
+.lgbc_settings_block_right{
+    width: 49%;
+}
