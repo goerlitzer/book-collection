@@ -16,7 +16,7 @@ add_action( 'admin_menu', 'add_tutorial_cpt_submenu_example' );
 function add_tutorial_cpt_submenu_example() {
 
 	add_submenu_page(
-		'edit.php?post_type=books', //$parent_slug
+		'edit.php?post_type=books-collection', //$parent_slug
 		'Buchsammlung Einstellugen',  //$page_title
 		'Einstellungen',        //$menu_title
 		'manage_options',           //$capability
@@ -44,7 +44,7 @@ function book_collection_settings_render_page() {
         <div class="lgbc_settings_block_left">
             <div id="pageparentdiv" class="postbox">
                 <div class="postbox-header">
-                    <h2 class="hndle ui-sortable-handle">Information</h2>
+                    <h2 class="hndle ui-sortable-handle">Information zum Plugin</h2>
                 </div>
                 <p class="inside">
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut

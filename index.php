@@ -1,11 +1,11 @@
 <?php
 
 /*
-Plugin Name: Book Collection
+Plugin Name: Books Collection
 Plugin URI: https://larsgoerlitzer.de
 Description: Bücher-Sammlung
 Version: 0.1
-Author: Lars
+Author: LGdesign
 Author URI: https://larsgoerlitzer.de
 License: A "Slug" license name e.g. GPL2
 */
@@ -72,7 +72,7 @@ function custom_post_type() {
 // Set other options for Custom Post Type
 
 	$args = array(
-		'label'               => __( 'books', 'twentytwenty' ),
+		'label'               => __( 'books-collection', 'twentytwenty' ),
 		'description'         => __( 'Büchersammulung', 'twentytwenty' ),
 		'labels'              => $labels,
 		// Features this CPT supports in Post Editor
@@ -101,7 +101,7 @@ function custom_post_type() {
 	);
 
 	// Registering your Custom Post Type
-	register_post_type( 'books', $args );
+	register_post_type( 'books-collection', $args );
 
 }
 
@@ -143,7 +143,7 @@ function wpdocs_create_book_taxonomies() {
 		'rewrite'           => array( 'slug' => 'genre' ),
 	);
 
-	register_taxonomy( 'genre', array( 'books' ), $args );
+	register_taxonomy( 'genre', array( 'books-collection' ), $args );
 
 	unset( $args );
 	unset( $labels );
@@ -178,16 +178,21 @@ function wpdocs_create_book_taxonomies() {
 		'rewrite'               => array( 'slug' => 'writer' ),
 	);
 
-	register_taxonomy( 'writer', 'books', $args );
+	register_taxonomy( 'writer', 'books-collection', $args );
 }
 
 // hook into the init action and call create_book_taxonomies when it fires
 add_action( 'init', 'wpdocs_create_book_taxonomies', 0 );
 
 
+//add settings link on plugin page
+function plugin_add_settings_link( $links ) {
 
-
-
-
+	$settings_link = '<a href="edit.php?post_type=books-collection&page=book_collection_settings">Einstellungen</a>';
+	array_push( $links, $settings_link );
+	return $links;
+}
+$plugin = plugin_basename( __FILE__ );
+add_filter( "plugin_action_links_$plugin", 'plugin_add_settings_link' );
 
 
