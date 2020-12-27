@@ -27,6 +27,7 @@ defined( 'ABSPATH' ) or die( 'NO!' );
 
 include( plugin_dir_path( __FILE__ ) . 'frontend/book-query.php' );
 include( plugin_dir_path( __FILE__ ) . 'backend/admin-settings-page.php' );
+include( plugin_dir_path( __FILE__ ) . 'backend/edit_post.php' );
 
 
 //load frontend scripts
@@ -76,7 +77,7 @@ function custom_post_type() {
 		'description'         => __( 'Büchersammulung', 'twentytwenty' ),
 		'labels'              => $labels,
 		// Features this CPT supports in Post Editor
-		'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'custom-fields', ),
+		'supports'            => array( 'title', 'editor', 'thumbnail' ),
 		//'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
 		// You can associate this CPT with a taxonomy or custom taxonomy.
 		'menu_icon'           => 'dashicons-book-alt',
@@ -190,8 +191,10 @@ function plugin_add_settings_link( $links ) {
 
 	$settings_link = '<a href="edit.php?post_type=books-collection&page=book_collection_settings">Einstellungen</a>';
 	array_push( $links, $settings_link );
+
 	return $links;
 }
+
 $plugin = plugin_basename( __FILE__ );
 add_filter( "plugin_action_links_$plugin", 'plugin_add_settings_link' );
 

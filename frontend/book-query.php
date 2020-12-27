@@ -4,30 +4,25 @@
 function diwp_create_shortcode_movies_post_type() {
 
 	$args = array(
-		'post_type'      => 'books',
+		'post_type'      => 'books-collection',
 		'posts_per_page' => '10',
 		'publish_status' => 'published',
 	);
 
 	$the_query = new WP_Query( $args );
 
-
 	if ( $the_query->have_posts() ) :
 
 		// pagination here
-
 		// the loop
 		while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
 
             <div>
                 <div class="lgbc_book_cover">
 					<?php
-					if ( the_post_thumbnail() ) {
+					if ( has_post_thumbnail() ) {
 						the_post_thumbnail();
 					} else {
-
-
 						?>
                         <img src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/book_placeholder.svg">
 						<?php
