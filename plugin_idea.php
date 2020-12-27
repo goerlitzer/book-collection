@@ -1,5 +1,8 @@
 <?php
 /*
+ * Lightbox für das Buchcover
+ *
+ *
  * Plugin Features
 
     Responsive Book Showcase plugin

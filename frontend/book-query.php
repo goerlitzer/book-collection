@@ -15,7 +15,10 @@ function diwp_create_shortcode_movies_post_type() {
 
 		// pagination here
 		// the loop
-		while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+		while ( $the_query->have_posts() ) : $the_query->the_post();
+			$post_id = get_the_ID();
+
+			?>
 
             <div>
                 <div class="lgbc_book_cover">
@@ -24,15 +27,30 @@ function diwp_create_shortcode_movies_post_type() {
 						the_post_thumbnail();
 					} else {
 						?>
-                        <img src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/book_placeholder.svg">
+                        <img alt="Bookcover Placeholder"
+                             src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/book_placeholder.svg">
 						<?php
 					}
-
-
 					?>
                 </div>
 
 				<?php the_title(); ?>
+                <div>
+					<?php
+					$value_book_format = get_post_meta( $post_id, "book_format", true );
+
+					switch ( $value_book_format ) {
+						case "ebook":
+							$value_book_format = "E-Book";
+							break;
+						case "gebunden":
+							$value_book_format = "Gebundes Buch";
+							break;
+					}
+					echo 'Buchformat: ' . $value_book_format;
+					?>
+                </div>
+
 				<?php the_content(); ?>
             </div>
 
@@ -48,4 +66,4 @@ function diwp_create_shortcode_movies_post_type() {
 	<?php endif;
 }
 
-add_shortcode( 'book-collection', 'diwp_create_shortcode_movies_post_type' );
+add_shortcode( 'book-collection-list', 'diwp_create_shortcode_movies_post_type' );

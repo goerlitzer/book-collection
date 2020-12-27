@@ -91,7 +91,7 @@ function custom_post_type() {
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 20,
+		'menu_position'       => 30,
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => false,
@@ -199,3 +199,13 @@ $plugin = plugin_basename( __FILE__ );
 add_filter( "plugin_action_links_$plugin", 'plugin_add_settings_link' );
 
 
+//Replace “Enter Title Here” Placeholder Text
+function wpb_change_title_text( $title ){
+	$screen = get_current_screen();
+
+	if  ( 'books-collection' == $screen->post_type ) {
+		$title = 'Buchtitel';
+	}
+	return $title;
+}
+add_filter( 'enter_title_here', 'wpb_change_title_text' );

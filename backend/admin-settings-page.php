@@ -66,14 +66,26 @@ function book_collection_settings_render_page() {
                     <h2 class="hndle ui-sortable-handle">Allgemein</h2>
                 </div>
                 <div class="inside">
+                    <p>Shortcodes</p>
                     <table class="form-table" role="presentation">
                         <tbody>
                         <tr>
-                            <th scope="row"><label for="blogname">Shortcode</label></th>
-                            <td><label><code>[book-collection]</code></label>
+                            <th scope="row"><label for="blogname">Bücher</label></th>
+                            <td><label><code>[book-collection-list]</code></label>
                                 <p>Nutze den Shortcode zum Anzeigen der Bückersammlung in einem Beirag oder auf
-                                    einer
-                                    Seite</p>
+                                    einer Seite</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="blogname">Authoren</label></th>
+                            <td><label><code>[book-collection-author]</code></label>
+                                <p>Nutze den Shortcode für die Auflistung aller Authoren</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row"><label for="blogname">Genres</label></th>
+                            <td><label><code>[book-collection-genres]</code></label>
+                                <p>Nutze den Shortcode für die Auflistung aller verwendeten Gernes</p>
                             </td>
                         </tr>
                         </tbody>
