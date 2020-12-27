@@ -33,8 +33,9 @@ function diwp_create_shortcode_movies_post_type() {
 					}
 					?>
                 </div>
-
-				<?php the_title(); ?>
+                <h2>
+					<?php the_title(); ?>
+                </h2>
                 <div>
 					<?php
 					$value_book_format = get_post_meta( $post_id, "book_format", true );
@@ -49,6 +50,16 @@ function diwp_create_shortcode_movies_post_type() {
 					}
 					echo 'Buchformat: ' . $value_book_format;
 					?>
+
+                    <ul>
+                        <li>Buchformat: <?php echo $value_book_format ?></li>
+                        <li>
+                            ISBN: <?php echo esc_attr( get_post_meta( get_the_ID(), 'hcf_published_date', true ) ); ?></li>
+                        <li>
+                            Veröffentlichungsdatum: <?php echo esc_attr( get_post_meta( get_the_ID(), 'hcf_price', true ) ); ?></li>
+                        <li>Verlag: xxx</li>
+                        <li>Seiteanzahl:</li>
+                    </ul>
                 </div>
 
 				<?php the_content(); ?>
