@@ -14,6 +14,17 @@ License: A "Slug" license name e.g. GPL2
 //https://wordpress.org/plugins/wp-books-gallery/
 
 
+/*
+ * settings page
+ * https://deliciousbrains.com/create-wordpress-plugin-settings-page/
+ *
+ * details page
+ * https://wordpress.stackexchange.com/questions/162146/plugin-view-details-link
+ */
+
+include( plugin_dir_path( __FILE__ ) . 'frontend/book-query.php');
+include( plugin_dir_path( __FILE__ ) . 'backend/admin-page.php');
+
 defined( 'ABSPATH' ) or die( 'NO!' );
 ///Throw out if unallowed access
 
@@ -167,85 +178,9 @@ function wpdocs_create_book_taxonomies() {
 add_action( 'init', 'wpdocs_create_book_taxonomies', 0 );
 
 
-function admin_menu(){
-    add_menu_page("Bucheinstellung" , "Bucheinstellung" , "manage_options" , "buch_menu" , "buch_admin_site" , "dashicons-book-alt" , "50");
-}
-function buch_admin_site(){
-    ?>
-    <div class="wrap">
-        <h1 class="wp-heading-inline">Buch Collection Einstellung</h1>
-        <div>
-            stuff
-        </div>
-    </div>
-
-
-    <?php
-}
-
-add_action("admin_menu" , "admin_menu");
 
 
 
-// >> Create Shortcode to Display Movies Post Types
-
-function diwp_create_shortcode_movies_post_type(){
-
-    $args = array(
-        'post_type'      => 'books',
-        'posts_per_page' => '10',
-        'publish_status' => 'published',
-    );
-
-$the_query = new WP_Query( $args );
-
-
-
-if ( $the_query->have_posts() ) :
-
-    // pagination here
-
-    // the loop
-     while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
-
-        <div>
-            <div class="lgbc_book_cover">
-            <?php
-            if(the_post_thumbnail()){
-                the_post_thumbnail();
-            } else {
-
-
-                ?>
-                <img src="<?php echo plugin_dir_url( __FILE__ ) ?>/img/book_placeholder.svg">
-                <?php
-            }
-
-
-            ?>
-            </div>
-
-        <?php the_title(); ?>
-            <?php the_content(); ?>
-        </div>
-
-
-
-    <?php endwhile;
-    // end of the loop
-    // pagination here
-
-    wp_reset_postdata();
-
- else : ?>
-    <p><?php _e( 'Es wurden keine Bücher gefunden.' ); ?></p>
-<?php endif;
-}
-
-add_shortcode( 'book-collection', 'diwp_create_shortcode_movies_post_type' );
-
-// shortcode code ends here
 
 
 
