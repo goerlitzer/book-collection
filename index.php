@@ -26,6 +26,7 @@ defined( 'ABSPATH' ) or die( 'NO!' );
 
 
 include( plugin_dir_path( __FILE__ ) . 'frontend/book-query.php' );
+include( plugin_dir_path( __FILE__ ) . 'frontend/writer_query.php' );
 include( plugin_dir_path( __FILE__ ) . 'backend/admin-settings-page.php' );
 include( plugin_dir_path( __FILE__ ) . 'backend/edit_post.php' );
 
@@ -144,7 +145,7 @@ function wpdocs_create_book_taxonomies() {
 		'rewrite'           => array( 'slug' => 'genre' ),
 	);
 
-	register_taxonomy( 'genre', array( 'books-collection' ), $args );
+	register_taxonomy( 'lgbc-genre', array( 'books-collection' ), $args );
 
 	unset( $args );
 	unset( $labels );
@@ -179,7 +180,7 @@ function wpdocs_create_book_taxonomies() {
 		'rewrite'               => array( 'slug' => 'writer' ),
 	);
 
-	register_taxonomy( 'writer', 'books-collection', $args );
+	register_taxonomy( 'lgbc-writer', 'books-collection', $args );
 }
 
 // hook into the init action and call create_book_taxonomies when it fires
