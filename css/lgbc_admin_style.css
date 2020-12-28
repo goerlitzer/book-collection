@@ -21,7 +21,7 @@
 
 .lgbc_settings_block_middle {
     width: 2%;
-    font-size: 0px;
+    font-size: 0;
 }
 
 .lgbc_settings_block_right {
@@ -32,9 +32,16 @@
     width: 160px;
     display: inline-block;
 }
-.hcf_box{
+
+.hcf_box {
     display: grid;
     grid-template-columns: max-content 1fr;
     grid-row-gap: 10px;
     grid-column-gap: 20px;
+}
+
+.label_shortcode {
+    font-size: 16px;
+    background-color: #F1F1F1;
+    padding: 5px;
 }

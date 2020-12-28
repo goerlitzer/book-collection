@@ -40,10 +40,11 @@ function lgbc_shortcode_show_books() {
                 <div>
 					<?php
 
+					echo '<p> Genre: ';
 					foreach ( get_the_terms( $post_id, 'lgbc-writer' ) as $tax ) {
-						echo '<p> Author: ' . $tax->name . '</p>';
+						echo $tax->name . ', ';
 					}
-
+					echo '</p>';
 
 					echo '<p> Genre: ';
 					foreach ( get_the_terms( $post_id, 'lgbc-genre' ) as $tax ) {
