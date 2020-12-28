@@ -36,29 +36,67 @@ function diwp_create_shortcode_movies_post_type() {
                 <h2>
 					<?php the_title(); ?>
                 </h2>
+
                 <div>
-					<?php
-					$value_book_format = get_post_meta( $post_id, "book_format", true );
 
-					switch ( $value_book_format ) {
-						case "ebook":
-							$value_book_format = "E-Book";
-							break;
-						case "gebunden":
-							$value_book_format = "Gebundes Buch";
-							break;
-					}
-					echo 'Buchformat: ' . $value_book_format;
-					?>
 
+                    <?php
+
+                    foreach ( get_the_terms( $post_id, 'writer' ) as $tax ) {
+	                    echo '<p> Author: ' .  $tax->name . '</p>';
+                    }
+
+
+                    echo '<p> Genre: ';
+                    foreach ( get_the_terms( $post_id, 'genre' ) as $tax ) {
+	                    echo $tax->name . ', ' ;
+                    }
+                    echo '</p>';
+
+                    ?>
+
+                </div>
+
+                <div>
                     <ul>
-                        <li>Buchformat: <?php echo $value_book_format ?></li>
-                        <li>
-                            ISBN: <?php echo esc_attr( get_post_meta( get_the_ID(), 'hcf_published_date', true ) ); ?></li>
-                        <li>
-                            Veröffentlichungsdatum: <?php echo esc_attr( get_post_meta( get_the_ID(), 'hcf_price', true ) ); ?></li>
-                        <li>Verlag: xxx</li>
-                        <li>Seiteanzahl:</li>
+						<?php
+
+						$lgbc_book_format = get_post_meta( $post_id, "lgbc_book_format", true );
+						if ( $lgbc_book_format ) {
+
+							switch ( $lgbc_book_format ) {
+								case "ebook":
+									$lgbc_book_format = "E-Book";
+									break;
+								case "gebunden":
+									$lgbc_book_format = "Gebundes Buch";
+									break;
+							}
+
+							echo '<li> Buchformat: ' . $lgbc_book_format . '</li>';
+						}
+
+						$lgbc_isbn = esc_attr( get_post_meta( get_the_ID(), 'lgbc_isbn', true ) );
+						if ( $lgbc_isbn ) {
+							echo '<li> ISBN: ' . $lgbc_isbn . '</li>';
+						}
+
+						$lgbc_published_date = esc_attr( get_post_meta( get_the_ID(), 'lgbc_published_date', true ) );
+						if ( $lgbc_published_date ) {
+							echo '<li> Veröffentlichungsdatum: ' . $lgbc_published_date . '</li>';
+						}
+
+						$lgbc_publisher = esc_attr( get_post_meta( get_the_ID(), 'lgbc_publisher', true ) );
+						if ( $lgbc_publisher ) {
+							echo '<li> Verlag: ' . $lgbc_publisher . '</li>';
+						}
+						$lgbc_pages = esc_attr( get_post_meta( get_the_ID(), 'lgbc_pages', true ) );
+						if ( $lgbc_pages ) {
+							echo '<li> Seiteanzahl: ' . $lgbc_pages . '</li>';
+						}
+
+						?>
+
                     </ul>
                 </div>
 
