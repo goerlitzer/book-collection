@@ -1,7 +1,7 @@
 <?php
 // >> Create Shortcode to Display Movies Post Types
 
-function diwp_create_shortcode_movies_post_type() {
+function lgbc_shortcode_show_books() {
 
 	$args = array(
 		'post_type'      => 'books-collection',
@@ -38,22 +38,20 @@ function diwp_create_shortcode_movies_post_type() {
                 </h2>
 
                 <div>
+					<?php
+
+					foreach ( get_the_terms( $post_id, 'lgbc-writer' ) as $tax ) {
+						echo '<p> Author: ' . $tax->name . '</p>';
+					}
 
 
-                    <?php
+					echo '<p> Genre: ';
+					foreach ( get_the_terms( $post_id, 'lgbc-genre' ) as $tax ) {
+						echo $tax->name . ', ';
+					}
+					echo '</p>';
 
-                    foreach ( get_the_terms( $post_id, 'writer' ) as $tax ) {
-	                    echo '<p> Author: ' .  $tax->name . '</p>';
-                    }
-
-
-                    echo '<p> Genre: ';
-                    foreach ( get_the_terms( $post_id, 'genre' ) as $tax ) {
-	                    echo $tax->name . ', ' ;
-                    }
-                    echo '</p>';
-
-                    ?>
+					?>
 
                 </div>
 
@@ -103,7 +101,6 @@ function diwp_create_shortcode_movies_post_type() {
 				<?php the_content(); ?>
             </div>
 
-
 		<?php endwhile;
 		// end of the loop
 		// pagination here
@@ -115,4 +112,4 @@ function diwp_create_shortcode_movies_post_type() {
 	<?php endif;
 }
 
-add_shortcode( 'book-collection-list', 'diwp_create_shortcode_movies_post_type' );
+add_shortcode( 'book-collection-list', 'lgbc_shortcode_show_books' );

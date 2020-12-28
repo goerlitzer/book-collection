@@ -71,20 +71,20 @@ function book_collection_settings_render_page() {
                         <tbody>
                         <tr>
                             <th scope="row"><label for="blogname">Bücher</label></th>
-                            <td><label><code>[book-collection-list]</code></label>
+                            <td><label class="label_shortcode">[book-collection-list]</label>
                                 <p>Nutze den Shortcode zum Anzeigen der Bückersammlung in einem Beirag oder auf
                                     einer Seite</p>
                             </td>
                         </tr>
                         <tr>
                             <th scope="row"><label for="blogname">Authoren</label></th>
-                            <td><label><code>[book-collection-author]</code></label>
+                            <td><label class="label_shortcode">[book-collection-writers]</label>
                                 <p>Nutze den Shortcode für die Auflistung aller Authoren</p>
                             </td>
                         </tr>
                         <tr>
                             <th scope="row"><label for="blogname">Genres</label></th>
-                            <td><label><code>[book-collection-genres]</code></label>
+                            <td><label class="label_shortcode">[book-collection-genres]</label>
                                 <p>Nutze den Shortcode für die Auflistung aller verwendeten Gernes</p>
                             </td>
                         </tr>
