@@ -3,7 +3,7 @@
 add_action( "add_meta_boxes", "lgbc_books_metabox" );
 function lgbc_books_metabox() {
 
-	add_meta_box( "lgbc_books_metabox", "Buchangaben", "lgbc_book_details" );
+	add_meta_box( "lgbc_books_metabox", "Buchangaben", "lgbc_book_details" ,"books-collection" );
 }
 
 /*
@@ -30,44 +30,51 @@ function lgbc_save_book_details( $post_id ) {
 }
 
 function lgbc_book_details( $post ) {
-	$value_book_format = get_post_meta( $post->ID, "lgbc_book_format", true );
 
-	?>
-    <p class="meta-options hcf_field">
-        <label for="lgbc_book_format" id="book_format" class="metabox_label">Buchformat:</label>
-        <select name="lgbc_book_format" id="book_format">
-            <option value="ebook" <?php selected( $value_book_format, "ebook" ) ?> >E-Book</option>
-            <option value="gebunden" <?php selected( $value_book_format, "gebunden" ) ?> >Gebundenes Buch</option>
-        </select>
-    </p>
+	if ( get_post_type( get_the_ID() ) == 'books-collection' ) {
 
-    <p class="meta-options hcf_field">
-        <label class="metabox_label" for="lgbc_isbn">ISBN:</label>
-        <input id="lgbc_isbn" type="text" name="lgbc_isbn"
-               value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'lgbc_isbn', true ) ); ?>">
-    </p>
+		$value_book_format = get_post_meta( $post->ID, "lgbc_book_format", true );
 
-    <p class="meta-options hcf_field">
-        <label class="metabox_label" for="lgbc_published_date">Veröffentlichungsdatum:</label>
-        <input id="lgbc_published_date" type="date" name="lgbc_published_date"
-               value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'lgbc_published_date', true ) ); ?>">
-    </p>
+		?>
+        <p class="meta-options hcf_field">
+            <label for="lgbc_book_format" id="book_format" class="metabox_label">Buchformat:</label>
+            <select name="lgbc_book_format" id="book_format">
+                <option value="ebook" <?php selected( $value_book_format, "ebook" ) ?> >E-Book</option>
+                <option value="gebunden" <?php selected( $value_book_format, "gebunden" ) ?> >Gebundenes Buch</option>
+            </select>
+        </p>
 
+        <p class="meta-options hcf_field">
+            <label class="metabox_label" for="lgbc_isbn">ISBN:</label>
+            <input id="lgbc_isbn" type="text" name="lgbc_isbn"
+                   value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'lgbc_isbn', true ) ); ?>">
+        </p>
 
-    <p class="meta-options hcf_field">
-        <label class="metabox_label" for="lgbc_publisher">Verlag:</label>
-        <input id="lgbc_publisher" type="text" name="lgbc_publisher"
-               value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'lgbc_publisher', true ) ); ?>">
-    </p>
-
-    <p class="meta-options hcf_field">
-        <label class="metabox_label" for="lgbc_pages">Seiteanzahl:</label>
-        <input id="lgbc_pages" type="number" name="lgbc_pages"
-               value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'lgbc_pages', true ) ); ?>">
-    </p>
+        <p class="meta-options hcf_field">
+            <label class="metabox_label" for="lgbc_published_date">Veröffentlichungsdatum:</label>
+            <input id="lgbc_published_date" type="date" name="lgbc_published_date"
+                   value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'lgbc_published_date', true ) ); ?>">
+        </p>
 
 
-	<?php
+        <p class="meta-options hcf_field">
+            <label class="metabox_label" for="lgbc_publisher">Verlag:</label>
+            <input id="lgbc_publisher" type="text" name="lgbc_publisher"
+                   value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'lgbc_publisher', true ) ); ?>">
+        </p>
+
+        <p class="meta-options hcf_field">
+            <label class="metabox_label" for="lgbc_pages">Seiteanzahl:</label>
+            <input id="lgbc_pages" type="number" name="lgbc_pages"
+                   value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'lgbc_pages', true ) ); ?>">
+        </p>
+
+
+		<?php
+
+	}
+
+
 }
 
 /*

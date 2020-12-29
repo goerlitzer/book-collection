@@ -35,6 +35,7 @@ if( ! defined( 'LGBC_PLUGIN_DIR' ) ) define( 'LGBC_PLUGIN_DIR', plugin_dir_path(
 
 require_once LGBC_PLUGIN_DIR . '/frontend/book-query.php';
 require_once LGBC_PLUGIN_DIR . '/frontend/writer_query.php';
+require_once LGBC_PLUGIN_DIR . '/frontend/genre_query.php';
 require_once LGBC_PLUGIN_DIR . '/backend/admin-settings-page.php';
 require_once LGBC_PLUGIN_DIR . '/backend/edit_post.php';
 
