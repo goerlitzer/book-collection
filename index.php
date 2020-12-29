@@ -21,14 +21,26 @@ License: A "Slug" license name e.g. GPL2
  * details page
  * https://wordpress.stackexchange.com/questions/162146/plugin-view-details-link
  */
-defined( 'ABSPATH' ) or die( 'NO!' );
+
+if ( ! defined( 'ABSPATH' ) ) die( 'Nope' );
 ///Throw out if unallowed access
 
+// Defining constants
+if( ! defined( 'LGBC_VERSION' ) ) define( 'LGBC_VERSION', '0.1' );
+if( ! defined( 'LGBC_MENU_POSITION' ) ) define( 'LGBC_MENU_POSITION', 30 );
+if( ! defined( 'LGBC_PLUGIN_DIR' ) ) define( 'LGBC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+//if( ! defined( 'LGBC_PLUGIN_URI' ) ) define( 'LGBC_PLUGIN_URI', plugins_url( '', __FILE__ ) );
+//if( ! defined( 'LGBC_FILES_DIR' ) ) define( 'LGBC_FILES_DIR', LGBC_PLUGIN_DIR );
+//if( ! defined( 'LGBC_FILES_URI' ) ) define( 'LGBC_FILES_URI', LGBC_PLUGIN_URI );
 
-include( plugin_dir_path( __FILE__ ) . 'frontend/book-query.php' );
-include( plugin_dir_path( __FILE__ ) . 'frontend/writer_query.php' );
-include( plugin_dir_path( __FILE__ ) . 'backend/admin-settings-page.php' );
-include( plugin_dir_path( __FILE__ ) . 'backend/edit_post.php' );
+require_once LGBC_PLUGIN_DIR . '/frontend/book-query.php';
+require_once LGBC_PLUGIN_DIR . '/frontend/writer_query.php';
+require_once LGBC_PLUGIN_DIR . '/backend/admin-settings-page.php';
+require_once LGBC_PLUGIN_DIR . '/backend/edit_post.php';
+
+
+
+
 
 
 //load frontend scripts
@@ -92,7 +104,7 @@ function custom_post_type() {
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
 		'show_in_admin_bar'   => true,
-		'menu_position'       => 30,
+		'menu_position'       => LGBC_MENU_POSITION,
 		'can_export'          => true,
 		'has_archive'         => true,
 		'exclude_from_search' => false,

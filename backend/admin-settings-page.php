@@ -37,7 +37,7 @@ function book_collection_settings_render_page() {
 
             <h1>Einstellung Büchersammlung</h1>
 
-            <p>von Lars Görlitzer </p>
+            <p>von Lars Görlitzer <?php echo 'v' . LGBC_VERSION ?> </p>
 
         </div>
 
