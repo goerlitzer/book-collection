@@ -33,67 +33,67 @@ function book_collection_settings_render_page() {
 
     <div class="wrap lgbc_settings_page metabox-holder">
 
-        <div class="lgbc_settings_head lgbc_admin_padding_25 postbox">
+    <div class="lgbc_settings_head lgbc_admin_padding_25 postbox">
 
-            <h1>Einstellung Büchersammlung</h1>
+        <h1>Einstellung Büchersammlung</h1>
 
-            <p>von Lars Görlitzer <?php echo 'v' . LGBC_VERSION ?> </p>
+        <p>von Lars Görlitzer <?php echo 'v' . LGBC_VERSION ?> </p>
 
-        </div>
+    </div>
 
-        <div class="lgbc_settings_block_left">
-            <div id="pageparentdiv" class="postbox">
-                <div class="postbox-header">
-                    <h2 class="hndle ui-sortable-handle">Information zum Plugin</h2>
-                </div>
-                <p class="inside">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                    labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-                    et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                </p>
-
+    <div class="lgbc_settings_block_left">
+        <div id="pageparentdiv" class="postbox">
+            <div class="postbox-header">
+                <h2 class="hndle ui-sortable-handle">Information zum Plugin</h2>
             </div>
+            <p class="inside">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+                labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
+                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+            </p>
+
         </div>
+    </div>
 
-        <div class="lgbc_settings_block_middle">.</div>
+    <div class="lgbc_settings_block_middle">.</div>
 
-        <div class="lgbc_settings_block_right">
-            <div id="pageparentdiv" class="postbox">
-                <div class="postbox-header">
-                    <h2 class="hndle ui-sortable-handle">Allgemein</h2>
-                </div>
-                <div class="inside">
-                    <p>Shortcodes</p>
-                    <table class="form-table" role="presentation">
-                        <tbody>
-                        <tr>
-                            <th scope="row"><label for="blogname">Bücher</label></th>
-                            <td><label class="label_shortcode">[book-collection-list]</label>
-                                <p>Nutze den Shortcode zum Anzeigen der Bückersammlung in einem Beirag oder auf
-                                    einer Seite</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><label for="blogname">Authoren</label></th>
-                            <td><label class="label_shortcode">[book-collection-writers]</label>
-                                <p>Nutze den Shortcode für die Auflistung aller Authoren</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row"><label for="blogname">Genres</label></th>
-                            <td><label class="label_shortcode">[book-collection-genres]</label>
-                                <p>Nutze den Shortcode für die Auflistung aller verwendeten Gernes</p>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-
+    <div class="lgbc_settings_block_right">
+        <div id="pageparentdiv" class="postbox">
+            <div class="postbox-header">
+                <h2 class="hndle ui-sortable-handle">Allgemein</h2>
             </div>
+            <div class="inside">
+                <p>Shortcodes</p>
+                <table class="form-table" role="presentation">
+                    <tbody>
+                    <tr>
+                        <th scope="row"><label for="blogname">Bücher</label></th>
+                        <td><label class="label_shortcode">[book-collection-list]</label>
+                            <p>Nutze den Shortcode zum Anzeigen der Bückersammlung in einem Beirag oder auf
+                                einer Seite</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="blogname">Authoren</label></th>
+                        <td><label class="label_shortcode">[book-collection-writers]</label>
+                            <p>Nutze den Shortcode für die Auflistung aller Authoren</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row"><label for="blogname">Genres</label></th>
+                        <td><label class="label_shortcode">[book-collection-genres]</label>
+                            <p>Nutze den Shortcode für die Auflistung aller verwendeten Gernes</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
         </div>
+    </div>
 
 
 	<?php

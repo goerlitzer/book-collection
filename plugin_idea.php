@@ -2,6 +2,11 @@
 /*
  * Lightbox für das Buchcover
  *
+ * Frontend Design für die Bücher, Authoren und Genres
+ * Soll es für die Bücher eine Vorschau geben?
+ * Sollen Authoren und Bücher verlinkt sein?
+ * Custom CSS Feld
+ *
  *
  * Plugin Features
 

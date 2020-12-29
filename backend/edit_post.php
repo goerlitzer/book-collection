@@ -38,7 +38,7 @@ function lgbc_book_details( $post ) {
 		?>
         <p class="meta-options hcf_field">
             <label for="lgbc_book_format" id="book_format" class="metabox_label">Buchformat:</label>
-            <select name="lgbc_book_format" id="book_format">
+            <select name="lgbc_book_format" id="lgbc_book_format">
                 <option value="ebook" <?php selected( $value_book_format, "ebook" ) ?> >E-Book</option>
                 <option value="gebunden" <?php selected( $value_book_format, "gebunden" ) ?> >Gebundenes Buch</option>
             </select>
