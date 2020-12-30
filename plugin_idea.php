@@ -6,6 +6,8 @@
  * Soll es für die Bücher eine Vorschau geben?
  * Sollen Authoren und Bücher verlinkt sein?
  * Custom CSS Feld
+ * Bücher Grid - 2,3,4,5 spaltig
+ *      oder als Mansory - https://masonry.desandro.com/
  *
  *
  * Plugin Features
