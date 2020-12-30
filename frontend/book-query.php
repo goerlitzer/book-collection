@@ -3,6 +3,13 @@
 
 function lgbc_shortcode_show_books() {
 
+	?>
+    <h2>
+		<?php echo get_option( "books_headline" ); ?>
+    </h2>
+	<?php
+
+
 	$args = array(
 		'post_type'      => 'books-collection',
 		'posts_per_page' => '10',

@@ -9,11 +9,11 @@
 
 // Hook
 
-add_action( 'admin_menu', 'add_tutorial_cpt_submenu_example' );
+add_action( 'admin_menu', 'add_book_settings_submenu' );
 
 //admin_menu callback function
 
-function add_tutorial_cpt_submenu_example() {
+function add_book_settings_submenu() {
 
 	add_submenu_page(
 		'edit.php?post_type=books-collection', //$parent_slug
@@ -27,6 +27,21 @@ function add_tutorial_cpt_submenu_example() {
 }
 
 //add_submenu_page callback function
+
+add_action( "admin_init", "lgbc_admin_settings_option" );
+
+function lgbc_admin_settings_option() {
+	register_setting( "lgbc_general_settings", "books_headline" );
+
+	add_settings_section("lgbc_general_settings_section" , "Headline", "" , "book_collection_settings");
+	add_settings_field( "lgbc_books_headline_field", "Headline books collection", "lgbc_book_headline", "book_collection_settings", "lgbc_general_settings_section" );
+}
+
+function lgbc_book_headline() {
+	?>
+    <input type="text" id="lgbc_books_headline" name="books_headline" value="<?php echo get_option("books_headline") ?>">
+	<?php
+}
 
 function book_collection_settings_render_page() {
 	?>
@@ -44,16 +59,17 @@ function book_collection_settings_render_page() {
     <div class="lgbc_settings_block_left">
         <div id="pageparentdiv" class="postbox">
             <div class="postbox-header">
-                <h2 class="hndle ui-sortable-handle">Information zum Plugin</h2>
+                <h2 class="hndle ui-sortable-handle">Einstellungen</h2>
             </div>
-            <p class="inside">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-                labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-            </p>
+            <form action="options.php" method="post">
+                <?php
+                settings_fields("lgbc_general_settings");
+                do_settings_sections("book_collection_settings");
+                submit_button();
+
+                ?>
+
+            </form>
 
         </div>
     </div>
