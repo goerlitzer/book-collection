@@ -17,8 +17,8 @@ function add_book_settings_submenu() {
 
 	add_submenu_page(
 		'edit.php?post_type=books-collection', //$parent_slug
-		'Buchsammlung Einstellugen',  //$page_title
-		'Einstellungen',        //$menu_title
+		'Settings Book Collection',  //$page_title
+		'Settings',        //$menu_title
 		'manage_options',           //$capability
 		'book_collection_settings',//$menu_slug
 		'book_collection_settings_render_page'//$function
@@ -33,7 +33,7 @@ add_action( "admin_init", "lgbc_admin_settings_option" );
 function lgbc_admin_settings_option() {
 	register_setting( "lgbc_general_settings", "books_headline" );
 
-	add_settings_section("lgbc_general_settings_section" , "Headline", "" , "book_collection_settings");
+	add_settings_section("lgbc_general_settings_section" , "Generel settings", "" , "book_collection_settings");
 	add_settings_field( "lgbc_books_headline_field", "Headline books collection", "lgbc_book_headline", "book_collection_settings", "lgbc_general_settings_section" );
 }
 
@@ -50,18 +50,18 @@ function book_collection_settings_render_page() {
 
     <div class="lgbc_settings_head lgbc_admin_padding_25 postbox">
 
-        <h1>Einstellung Büchersammlung</h1>
+        <h1>Settings - Book Collection</h1>
 
-        <p>von Lars Görlitzer <?php echo 'v' . LGBC_VERSION ?> </p>
+        <p>by Lars Görlitzer <?php echo 'v' . LGBC_VERSION ?> </p>
 
     </div>
 
     <div class="lgbc_settings_block_left">
         <div id="pageparentdiv" class="postbox">
             <div class="postbox-header">
-                <h2 class="hndle ui-sortable-handle">Einstellungen</h2>
+                <h2 class="hndle ui-sortable-handle">General</h2>
             </div>
-            <form action="options.php" method="post">
+            <form action="options.php" method="post" class="inside">
                 <?php
                 settings_fields("lgbc_general_settings");
                 do_settings_sections("book_collection_settings");
@@ -79,29 +79,28 @@ function book_collection_settings_render_page() {
     <div class="lgbc_settings_block_right">
         <div id="pageparentdiv" class="postbox">
             <div class="postbox-header">
-                <h2 class="hndle ui-sortable-handle">Allgemein</h2>
+                <h2 class="hndle ui-sortable-handle">Usage</h2>
             </div>
             <div class="inside">
                 <p>Shortcodes</p>
                 <table class="form-table" role="presentation">
                     <tbody>
                     <tr>
-                        <th scope="row"><label for="blogname">Bücher</label></th>
+                        <th scope="row"><label for="blogname">Books</label></th>
                         <td><label class="label_shortcode">[book-collection-list]</label>
-                            <p>Nutze den Shortcode zum Anzeigen der Bückersammlung in einem Beirag oder auf
-                                einer Seite</p>
+                            <p>Use the shortcode to display the book collection in a post or on a page</p>
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row"><label for="blogname">Authoren</label></th>
+                        <th scope="row"><label for="blogname">Writers</label></th>
                         <td><label class="label_shortcode">[book-collection-writers]</label>
-                            <p>Nutze den Shortcode für die Auflistung aller Authoren</p>
+                            <p>Use the shortcode for listing all authors</p>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row"><label for="blogname">Genres</label></th>
                         <td><label class="label_shortcode">[book-collection-genres]</label>
-                            <p>Nutze den Shortcode für die Auflistung aller verwendeten Gernes</p>
+                            <p>Use the shortcode for listing all used genres</p>
                         </td>
                     </tr>
                     </tbody>

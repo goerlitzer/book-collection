@@ -67,17 +67,17 @@ function custom_post_type() {
 
 // Set UI labels for Custom Post Type
 	$labels = array(
-		'name'               => _x( 'Bücher', 'Post Type General Name', 'twentytwenty' ),
-		'singular_name'      => _x( 'Buch', 'Post Type Singular Name', 'twentytwenty' ),
-		'menu_name'          => __( 'Bücher', 'twentytwenty' ),
+		'name'               => _x( 'Book Collection', 'Post Type General Name', 'twentytwenty' ),
+		'singular_name'      => _x( 'Book', 'Post Type Singular Name', 'twentytwenty' ),
+		'menu_name'          => __( 'Book Collection', 'twentytwenty' ),
 		'parent_item_colon'  => __( 'Parent Movie', 'twentytwenty' ),
-		'all_items'          => __( 'Alle Bücher', 'twentytwenty' ),
-		'view_item'          => __( 'Buch anzeigen', 'twentytwenty' ),
-		'add_new_item'       => __( 'Buch hinzufügen', 'twentytwenty' ),
-		'add_new'            => __( 'Hinzufügen', 'twentytwenty' ),
-		'edit_item'          => __( 'Buch bearbeiten', 'twentytwenty' ),
-		'featured_image'     => __( 'Buchcover', 'textdomain' ),    //used in post.php
-		'set_featured_image' => __( 'Buchcover hinzufügen', 'textdomain' ),    //used in post.php
+		'all_items'          => __( 'All Books', 'twentytwenty' ),
+		'view_item'          => __( 'View Book', 'twentytwenty' ),
+		'add_new_item'       => __( 'Add Book', 'twentytwenty' ),
+		'add_new'            => __( 'Add Book', 'twentytwenty' ),
+		'edit_item'          => __( 'Edit Book', 'twentytwenty' ),
+		'featured_image'     => __( 'Book Cover', 'textdomain' ),    //used in post.php
+		'set_featured_image' => __( 'Add Book Cover', 'textdomain' ),    //used in post.php
 		'update_item'        => __( 'Update Movie', 'twentytwenty' ),
 		'search_items'       => __( 'Search Movie', 'twentytwenty' ),
 		'not_found'          => __( 'Not Found', 'twentytwenty' ),
@@ -88,7 +88,7 @@ function custom_post_type() {
 
 	$args = array(
 		'label'               => __( 'books-collection', 'twentytwenty' ),
-		'description'         => __( 'Büchersammulung', 'twentytwenty' ),
+		'description'         => __( 'Book Collection', 'twentytwenty' ),
 		'labels'              => $labels,
 		// Features this CPT supports in Post Editor
 		'supports'            => array( 'title', 'editor', 'thumbnail' ),
@@ -144,7 +144,7 @@ function wpdocs_create_book_taxonomies() {
 		'parent_item_colon' => __( 'Parent Genre:', 'textdomain' ),
 		'edit_item'         => __( 'Edit Genre', 'textdomain' ),
 		'update_item'       => __( 'Update Genre', 'textdomain' ),
-		'add_new_item'      => __( 'Genre hinzufügen', 'textdomain' ),
+		'add_new_item'      => __( 'Add Genre', 'textdomain' ),
 		'new_item_name'     => __( 'New Genre Name', 'textdomain' ),
 		'menu_name'         => __( 'Genres', 'textdomain' ),
 	);
@@ -165,22 +165,22 @@ function wpdocs_create_book_taxonomies() {
 
 	// Add new taxonomy, NOT hierarchical (like tags)
 	$labels = array(
-		'name'                       => _x( 'Authoren', 'taxonomy general name', 'textdomain' ),
-		'singular_name'              => _x( 'Author', 'taxonomy singular name', 'textdomain' ),
-		'search_items'               => __( 'Author suchen', 'textdomain' ),
+		'name'                       => _x( 'Writers', 'taxonomy general name', 'textdomain' ),
+		'singular_name'              => _x( 'Writer', 'taxonomy singular name', 'textdomain' ),
+		'search_items'               => __( 'Search Writers', 'textdomain' ),
 		'popular_items'              => __( 'Popular Writers', 'textdomain' ),
-		'all_items'                  => __( 'Alle Authoren', 'textdomain' ),
+		'all_items'                  => __( 'All Writers', 'textdomain' ),
 		'parent_item'                => null,
 		'parent_item_colon'          => null,
 		'edit_item'                  => __( 'Edit Writer', 'textdomain' ),
 		'update_item'                => __( 'Update Writer', 'textdomain' ),
-		'add_new_item'               => __( 'Author hinzufügen', 'textdomain' ),
+		'add_new_item'               => __( 'Add Writers', 'textdomain' ),
 		'new_item_name'              => __( 'New Writer Name', 'textdomain' ),
 		'separate_items_with_commas' => __( 'Separate writers with commas', 'textdomain' ),
 		'add_or_remove_items'        => __( 'Add or remove writers', 'textdomain' ),
 		'choose_from_most_used'      => __( 'Choose from the most used writers', 'textdomain' ),
 		'not_found'                  => __( 'No writers found.', 'textdomain' ),
-		'menu_name'                  => __( 'Authoren', 'textdomain' ),
+		'menu_name'                  => __( 'Writers', 'textdomain' ),
 	);
 
 	$args = array(
@@ -218,7 +218,7 @@ function wpb_change_title_text( $title ){
 	$screen = get_current_screen();
 
 	if  ( 'books-collection' == $screen->post_type ) {
-		$title = 'Buchtitel';
+		$title = 'add book title';
 	}
 	return $title;
 }
