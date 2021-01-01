@@ -9,11 +9,14 @@ function lgbc_shortcode_show_books() {
     </h2>
 	<?php
 
+	$value_books_sort_by = get_option( "books_sort_by" );
 
 	$args = array(
 		'post_type'      => 'books-collection',
-		'posts_per_page' => '10',
+		'posts_per_page' => '10000',
 		'publish_status' => 'published',
+		'order'          => 'ASC',
+		'orderby'        => $value_books_sort_by,
 	);
 
 	$the_query = new WP_Query( $args );

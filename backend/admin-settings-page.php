@@ -32,14 +32,30 @@ add_action( "admin_init", "lgbc_admin_settings_option" );
 
 function lgbc_admin_settings_option() {
 	register_setting( "lgbc_general_settings", "books_headline" );
+	register_setting( "lgbc_general_settings", "books_sort_by" );
 
 	add_settings_section("lgbc_general_settings_section" , "Generel settings", "" , "book_collection_settings");
-	add_settings_field( "lgbc_books_headline_field", "Headline books collection", "lgbc_book_headline", "book_collection_settings", "lgbc_general_settings_section" );
+
+	add_settings_field( "lgbc_books_headline_field", "Headline books collection:", "lgbc_book_headline", "book_collection_settings", "lgbc_general_settings_section" );
+	add_settings_field( "lgbc_books_sort_by_field", "Sort By:", "lgbc_book_sort_by", "book_collection_settings", "lgbc_general_settings_section" );
 }
 
 function lgbc_book_headline() {
 	?>
     <input type="text" id="lgbc_books_headline" name="books_headline" value="<?php echo get_option("books_headline") ?>">
+	<?php
+}
+
+function lgbc_book_sort_by() {
+
+	$value_books_sort_by = get_option("books_sort_by");
+
+	?>
+    <select name="books_sort_by" id="books_sort_by">
+        <option value="name" <?php selected( $value_books_sort_by, "name" ) ?> >Name</option>
+        <option value="author" <?php selected( $value_books_sort_by, "author" ) ?> >Author</option>
+        <option value="date" <?php selected( $value_books_sort_by, "date" ) ?> >Date</option>
+    </select>
 	<?php
 }
 
