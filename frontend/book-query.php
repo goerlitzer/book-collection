@@ -11,6 +11,9 @@ function lgbc_shortcode_show_books() {
 
 	$value_books_sort_by = get_option( "books_sort_by" );
 
+	$value_books_grids_desktop = get_option( "books_grids_desktop" );
+	echo '<div>Grid ' . $value_books_grids_desktop . '</div>';
+
 	$args = array(
 		'post_type'      => 'books-collection',
 		'posts_per_page' => '10000',

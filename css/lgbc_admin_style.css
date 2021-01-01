@@ -19,6 +19,11 @@
 
 }
 
+.lgbc_settings_block_left td input,
+.lgbc_settings_block_left td select{
+    width: 300px
+}
+
 .lgbc_settings_block_middle {
     width: 2%;
     font-size: 0;
