@@ -20,7 +20,7 @@
 }
 
 .lgbc_settings_block_left td input,
-.lgbc_settings_block_left td select{
+.lgbc_settings_block_left td select {
     width: 300px
 }
 
@@ -49,4 +49,10 @@
     font-size: 16px;
     background-color: #F1F1F1;
     padding: 5px;
+}
+
+.lgbc_settings_note {
+    font-style: italic;
+    color: gray;
+    font-size: 12px;
 }

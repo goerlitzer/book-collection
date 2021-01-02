@@ -4,9 +4,11 @@
 function lgbc_shortcode_show_books() {
 
 	?>
-    <h2>
-		<?php echo get_option( "books_headline" ); ?>
-    </h2>
+        <?php if(get_option( "books_headline" )){ ?>
+            <h2>
+		        <?php echo get_option( "books_headline" ); ?>
+            </h2>
+        <?php } ?>
 	<?php
 
 	$value_books_sort_by = get_option( "books_sort_by" );
@@ -49,6 +51,10 @@ function lgbc_shortcode_show_books() {
                 <h2>
 					<?php the_title(); ?>
                 </h2>
+
+                <div>
+                    Erstellt am: <span class="entry-date"><?php echo get_the_date(); ?></span>
+                </div>
 
                 <div>
 					<?php

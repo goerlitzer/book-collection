@@ -39,10 +39,12 @@ function lgbc_admin_settings_option() {
 	register_setting( "lgbc_general_settings", "books_headline" );
 	register_setting( "lgbc_general_settings", "books_sort_by" );
 	register_setting( "lgbc_general_settings", "books_grids_desktop" );
+	register_setting( "lgbc_general_settings", "books_color_book_headline" );
 
-	add_settings_field( "lgbc_books_headline_field", "Headline books collection:", "lgbc_book_headline", "book_collection_settings", "lgbc_general_settings_section" );
+	add_settings_field( "lgbc_books_headline_field", "Headline book collection: <br> <span class='lgbc_settings_note'>(optional)</span>", "lgbc_book_headline", "book_collection_settings", "lgbc_general_settings_section" );
 	add_settings_field( "lgbc_books_sort_by_field", "Sort By:", "lgbc_book_sort_by", "book_collection_settings", "lgbc_general_settings_section" );
 	add_settings_field( "lgbc_books_grids_desktop_field", "Gallary Columns (Desktop):", "lgbc_books_grids_desktop", "book_collection_settings", "lgbc_display_settings_section" );
+	add_settings_field( "lgbc_books_color_book_headline", "Color Book Headline:", "lgbc_books_color_book_headline", "book_collection_settings", "lgbc_display_settings_section" );
 
 
 }
@@ -60,7 +62,7 @@ function lgbc_book_sort_by() {
 
 	?>
     <select name="books_sort_by" id="books_sort_by">
-        <option value="name" <?php selected( $value_books_sort_by, "name" ) ?> >Name</option>
+        <option value="name" <?php selected( $value_books_sort_by, "name" ) ?> >Name (default)</option>
         <option value="author" <?php selected( $value_books_sort_by, "author" ) ?> >Author</option>
         <option value="date" <?php selected( $value_books_sort_by, "date" ) ?> >Date</option>
     </select>
@@ -73,11 +75,16 @@ function lgbc_books_grids_desktop() {
 
 	?>
     <select name="books_grids_desktop" id="books_grids_desktop">
+        <option value="0" <?php selected( $value_books_grids_desktop, "0" ) ?> >full width (default)</option>
         <option value="2" <?php selected( $value_books_grids_desktop, "2" ) ?> >2</option>
         <option value="3" <?php selected( $value_books_grids_desktop, "3" ) ?> >3</option>
         <option value="4" <?php selected( $value_books_grids_desktop, "4" ) ?> >4</option>
     </select>
 	<?php
+}
+
+function lgbc_books_color_book_headline(){
+
 }
 
 function book_collection_settings_render_page() {
