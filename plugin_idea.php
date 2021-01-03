@@ -8,7 +8,9 @@
  * Custom CSS Feld
  * Bücher Grid - 2,3,4,5 spaltig
  *      oder als Mansory - https://masonry.desandro.com/
- *
+ * schriftgröße einstellbar für die einzelnen bereiche
+ * Buchsortierung by taxanomy (authoren und genre)
+ * hauptakzentfarbe selbst bestimmen können, default ist #ffab00
  *
  * Plugin Features
 
