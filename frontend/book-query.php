@@ -47,6 +47,11 @@ function lgbc_shortcode_show_books() {
 						<?php
 					}
 					?>
+
+                    <div class="lgbc_zoom_icon">
+                        <img src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/zoom.svg">
+                    </div>
+
                 </div>
                 <div class="lgbc_book_content">
 
@@ -55,30 +60,30 @@ function lgbc_shortcode_show_books() {
                     </h2>
 
                     <div>
-                        Erstellt am: <span class="entry-date"><?php echo get_the_date(); ?></span>
+                        Published: <span class="entry-date"><?php echo get_the_date(); ?></span>
                     </div>
 
-                    <div>
+                    <div class="lgbc_book_author">
 						<?php
 
-						echo '<p> Genre: ';
+						echo '<div class="lgbc_book_author_author"> by ';
 						foreach ( get_the_terms( $post_id, 'lgbc-writer' ) as $tax ) {
-							echo $tax->name . ', ';
+							echo $tax->name ;
 						}
-						echo '</p>';
+						echo '</div>';
 
-						echo '<p> Genre: ';
+						echo '<div class="lgbc_book_author_genre"> Genre: ';
 						foreach ( get_the_terms( $post_id, 'lgbc-genre' ) as $tax ) {
 							echo $tax->name . ', ';
 						}
-						echo '</p>';
+						echo '</div>';
 
 						?>
 
                     </div>
 
                     <div>
-                        <ul>
+                        <ul class="lgbc_book_details">
 							<?php
 
 							$lgbc_book_format = get_post_meta( $post_id, "lgbc_book_format", true );
@@ -93,7 +98,7 @@ function lgbc_shortcode_show_books() {
 										break;
 								}
 
-								echo '<li> Buchformat: ' . $lgbc_book_format . '</li>';
+								echo '<li> Book Format: ' . $lgbc_book_format . '</li>';
 							}
 
 							$lgbc_isbn = esc_attr( get_post_meta( get_the_ID(), 'lgbc_isbn', true ) );
@@ -103,16 +108,16 @@ function lgbc_shortcode_show_books() {
 
 							$lgbc_published_date = esc_attr( get_post_meta( get_the_ID(), 'lgbc_published_date', true ) );
 							if ( $lgbc_published_date ) {
-								echo '<li> Veröffentlichungsdatum: ' . $lgbc_published_date . '</li>';
+								echo '<li> Published On: ' . $lgbc_published_date . '</li>';
 							}
 
 							$lgbc_publisher = esc_attr( get_post_meta( get_the_ID(), 'lgbc_publisher', true ) );
 							if ( $lgbc_publisher ) {
-								echo '<li> Verlag: ' . $lgbc_publisher . '</li>';
+								echo '<li> Publisher: ' . $lgbc_publisher . '</li>';
 							}
 							$lgbc_pages = esc_attr( get_post_meta( get_the_ID(), 'lgbc_pages', true ) );
 							if ( $lgbc_pages ) {
-								echo '<li> Seiteanzahl: ' . $lgbc_pages . '</li>';
+								echo '<li> Number of Pages: ' . $lgbc_pages . '</li>';
 							}
 
 							?>

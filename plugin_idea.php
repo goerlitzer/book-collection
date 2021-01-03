@@ -11,6 +11,7 @@
  * schriftgröße einstellbar für die einzelnen bereiche
  * Buchsortierung by taxanomy (authoren und genre)
  * hauptakzentfarbe selbst bestimmen können, default ist #ffab00
+ * auswahl von fonts family für die überschriften
  *
  * Plugin Features
 

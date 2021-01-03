@@ -21,6 +21,43 @@ p.schniecke-klasse {
     flex: 30%;
 }
 
+.lgbc_grid_0 .lgbc_book_cover img{
+    border-radius: 6px;
+}
+
 .lgbc_grid_0 .lgbc_book_content {
     flex: 70%;
+    padding-left: 50px;
+}
+
+.lgbc_grid_0 .lgbc_book_content h2 {
+    margin: 0 0 5px 0;
+    font-size: 32px;
+}
+
+.lgbc_book_author {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lgbc_book_author_author {
+    width: 30%;
+}
+
+.lgbc_book_author_genre {
+    width: 70%;
+}
+
+ul.lgbc_book_details {
+    margin: 12px 0 24px 0;
+}
+
+ul.lgbc_book_details li {
+    list-style-type: none;
+    margin: 0 0 5px 8px;
+}
+
+ul.lgbc_book_details li::before {
+    content: '__';
+    margin-right: 4px;
 }
