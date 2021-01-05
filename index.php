@@ -43,13 +43,20 @@ require_once LGBC_PLUGIN_DIR . '/backend/edit_post.php';
 
 
 
-
 //load frontend scripts
 add_action( "wp_enqueue_scripts", "add_scripts" );
 
 function add_scripts() {
+	//css
 	wp_enqueue_style( "lgbc_style", plugins_url( "css/lgbc_style.css", __FILE__ ), "", null );
+	wp_enqueue_style( "lgbc_style_ekko-lightbox", plugins_url( "css/lgbc_ekko-lightbox.css", __FILE__ ), "", null );
+	wp_enqueue_style( "lgbc_style_bootstrap", plugins_url( "css/lgbc_bootstrap.min.css", __FILE__ ), "", null );
+	//js
+	wp_enqueue_script( "lgbc_script_jq", plugins_url( "js/lgbc_query-3.5.1.min.js", __FILE__ ), "", null );
+	wp_enqueue_script( "lgbc_script_propper", plugins_url( "js/lgbc_popper.min.js", __FILE__ ), "", null );
+	wp_enqueue_script( "lgbc_script_bootstrap", plugins_url( "js/lgbc_bootstrap.min.js", __FILE__ ), "", null );
 	wp_enqueue_script( "lgbc_script", plugins_url( "js/lgbc_script.js", __FILE__ ), "", null );
+	wp_enqueue_script( "lgbc_script_ekko_lightbox", plugins_url( "js/lgbc_ekko-lightbox.js", __FILE__ ), "", null );
 
 }
 

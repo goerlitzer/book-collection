@@ -37,21 +37,32 @@ function lgbc_shortcode_show_books() {
 
             <div class="lgbc_book lgbc_grid_0">
                 <div class="lgbc_book_cover">
-					<?php
-					if ( has_post_thumbnail() ) {
-						the_post_thumbnail();
-					} else {
-						?>
-                        <img alt="Bookcover Placeholder"
-                             src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/book_placeholder.svg">
+                    <div>
 						<?php
-					}
-					?>
+						if ( has_post_thumbnail() ) {
 
-                    <div class="lgbc_zoom_icon">
-                        <img src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/zoom.svg">
+							$images = get_the_post_thumbnail_url( $post_id, 'full' );
+							?>
+
+                            <a href="<?php echo $images; ?>" data-toggle="lightbox" data-gallery="lgbc_book_id_<?php echo $post_id; ?>">
+                                <img class="img-fluid img_hide" src="<?php echo $images; ?>"
+                                     alt="<?php echo $images['alt']; ?>"/>
+                            </a>
+
+							<?php
+
+						} else { ?>
+
+                            <img alt="Bookcover Placeholder"
+                                 src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/book_placeholder.svg">
+							<?php
+						}
+						?>
+
+                        <div class="lgbc_zoom_icon">
+                            <img src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/zoom_icon.svg">
+                        </div>
                     </div>
-
                 </div>
                 <div class="lgbc_book_content">
 
@@ -68,7 +79,7 @@ function lgbc_shortcode_show_books() {
 
 						echo '<div class="lgbc_book_author_author"> by ';
 						foreach ( get_the_terms( $post_id, 'lgbc-writer' ) as $tax ) {
-							echo $tax->name ;
+							echo $tax->name;
 						}
 						echo '</div>';
 
@@ -125,7 +136,7 @@ function lgbc_shortcode_show_books() {
                         </ul>
                     </div>
 
-	                <?php the_content(); ?>
+					<?php the_content(); ?>
 
                 </div>
 

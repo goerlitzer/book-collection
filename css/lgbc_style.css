@@ -19,10 +19,15 @@ p.schniecke-klasse {
 
 .lgbc_grid_0 .lgbc_book_cover {
     flex: 30%;
+    position: relative;
 }
 
-.lgbc_grid_0 .lgbc_book_cover img{
+.lgbc_grid_0 .lgbc_book_cover img {
     border-radius: 6px;
+}
+
+.lgbc_book_cover img.attachment-post-thumbnail{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
 .lgbc_grid_0 .lgbc_book_content {
@@ -60,4 +65,10 @@ ul.lgbc_book_details li {
 ul.lgbc_book_details li::before {
     content: '__';
     margin-right: 4px;
+}
+
+.lgbc_zoom_icon {
+    position: absolute;
+    right: 0;
+    top: 0;
 }
