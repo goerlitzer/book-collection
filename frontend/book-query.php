@@ -59,7 +59,7 @@ function lgbc_shortcode_show_books() {
 						} else { ?>
 
                             <img alt="Bookcover Placeholder"
-                                 src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/book_placeholder.svg">
+                                 src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/book_placeholder.jpg">
 							<?php
 						}
 						?>
@@ -97,20 +97,7 @@ function lgbc_shortcode_show_books() {
 						}
 						echo '</div>';
 
-						$second_loop = false;
 
-						echo '<div class="lgbc_book_author_genre"> Genre: ';
-						foreach ( get_the_terms( $post_id, 'lgbc-genre' ) as $tax ) {
-
-						    if ($second_loop){
-							    echo ' & ' . $tax->name ;
-						    } else {
-							    echo $tax->name;
-						    }
-							$second_loop = true;
-
-						}
-						echo '</div>';
 
 						?>
 
@@ -119,6 +106,21 @@ function lgbc_shortcode_show_books() {
                     <div>
                         <ul class="lgbc_book_details">
 							<?php
+
+							$second_loop = false;
+
+							echo '<li class="lgbc_book_author_genre"> Genre: ';
+							foreach ( get_the_terms( $post_id, 'lgbc-genre' ) as $tax ) {
+
+								if ($second_loop){
+									echo ' & ' . $tax->name ;
+								} else {
+									echo $tax->name;
+								}
+								$second_loop = true;
+
+							}
+							echo '</li>';
 
 							$lgbc_book_format = get_post_meta( $post_id, "lgbc_book_format", true );
 							if ( $lgbc_book_format ) {
