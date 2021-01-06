@@ -12,6 +12,7 @@
  * Buchsortierung by taxanomy (authoren und genre)
  * hauptakzentfarbe selbst bestimmen können, default ist #ffab00
  * auswahl von fonts family für die überschriften
+ * farbe der überschrift mit color picker -> https://code.tutsplus.com/de/articles/how-to-use-wordpress-color-picker-api--wp-33067
  *
  * Plugin Features
 

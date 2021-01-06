@@ -44,10 +44,15 @@ function lgbc_shortcode_show_books() {
 							$images = get_the_post_thumbnail_url( $post_id, 'full' );
 							?>
 
-                            <a href="<?php echo $images; ?>" data-toggle="lightbox" data-gallery="lgbc_book_id_<?php echo $post_id; ?>">
+                            <a href="<?php echo $images; ?>" data-toggle="lightbox" data-max-height="700"
+                               data-gallery="lgbc_book_id_<?php echo $post_id; ?>">
                                 <img class="img-fluid img_hide" src="<?php echo $images; ?>"
                                      alt="<?php echo $images['alt']; ?>"/>
                             </a>
+
+                            <div class="lgbc_zoom_icon">
+                                <img src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/zoom_icon.svg">
+                            </div>
 
 							<?php
 
@@ -59,9 +64,7 @@ function lgbc_shortcode_show_books() {
 						}
 						?>
 
-                        <div class="lgbc_zoom_icon">
-                            <img src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/zoom_icon.svg">
-                        </div>
+
                     </div>
                 </div>
                 <div class="lgbc_book_content">
@@ -70,22 +73,42 @@ function lgbc_shortcode_show_books() {
 						<?php the_title(); ?>
                     </h2>
 
+                    <!--
                     <div>
                         Published: <span class="entry-date"><?php echo get_the_date(); ?></span>
                     </div>
+                    -->
 
                     <div class="lgbc_book_author">
 						<?php
 
+						$second_loop = false;
+
 						echo '<div class="lgbc_book_author_author"> by ';
 						foreach ( get_the_terms( $post_id, 'lgbc-writer' ) as $tax ) {
-							echo $tax->name;
+
+							if ($second_loop){
+								echo ' & ' . $tax->name ;
+							} else {
+								echo $tax->name;
+							}
+							$second_loop = true;
+
 						}
 						echo '</div>';
 
+						$second_loop = false;
+
 						echo '<div class="lgbc_book_author_genre"> Genre: ';
 						foreach ( get_the_terms( $post_id, 'lgbc-genre' ) as $tax ) {
-							echo $tax->name . ', ';
+
+						    if ($second_loop){
+							    echo ' & ' . $tax->name ;
+						    } else {
+							    echo $tax->name;
+						    }
+							$second_loop = true;
+
 						}
 						echo '</div>';
 

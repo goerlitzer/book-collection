@@ -1,3 +1,8 @@
+:root {
+    --orange: #ffab00;
+}
+
+
 p.schniecke-klasse {
     color: red;
     background-color: black;
@@ -26,7 +31,7 @@ p.schniecke-klasse {
     border-radius: 6px;
 }
 
-.lgbc_book_cover img.attachment-post-thumbnail{
+.lgbc_book_cover img.img-fluid{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
@@ -43,14 +48,15 @@ p.schniecke-klasse {
 .lgbc_book_author {
     display: flex;
     flex-wrap: wrap;
+    color: gray;
 }
 
 .lgbc_book_author_author {
-    width: 30%;
+    width: auto;
+    padding-right: 30px;
 }
 
 .lgbc_book_author_genre {
-    width: 70%;
 }
 
 ul.lgbc_book_details {
@@ -65,10 +71,12 @@ ul.lgbc_book_details li {
 ul.lgbc_book_details li::before {
     content: '__';
     margin-right: 4px;
+    color: var(--orange);
 }
 
 .lgbc_zoom_icon {
     position: absolute;
     right: 0;
     top: 0;
+    cursor: pointer;
 }
