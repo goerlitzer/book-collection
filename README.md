@@ -1,18 +1,35 @@
 # WP Book Collection #
 
-A plugin for collecting books, comics or similar, with separate listing of authors and genres.
+v0.1 A plugin for collecting books, comics or similar, with separate listing of authors and genres.
 
 ## Up Comming Features ##
 
+### General ###
+
 * Frontend design for the books, authors and genres
-* Book preview
-* Link to between authors, genres and books?
+* Link to between authors, genres and books
 * Custom CSS field
-* Books Grid - full width and 2,3,4,5 columns
-* font size adjustable for each area
-* book sorting by authors, genre ...
-* main accent color can be set by yourself (using colorpicker), default is #ffab00
-* selection of font family for the headlines
+* Font size adjustable for each area
+* Book sorting by authors, genre ...
+* Main accent color can be set by yourself (using colorpicker), default will be #ffab00
+* Selection of font family for the headlines
+
+### Books ###
+
+* ~~Open book cover in a lightbox~~
+* Book Gallery (Multiple book pages)
+* Book preview text on collum view
+* Books Grid - ~~full width~~ and 2,3,4,5 columns
+
+### Authors ###
+
+* Author Image
+* Author Biography
+* List with associated books per author
+
+### Genre ###
+
+* List of related books per genre
 
 ## Description ##
 
