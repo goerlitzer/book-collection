@@ -1,6 +1,6 @@
 # WP Book Collection #
 
-A book collection for collecting books, comics or similar, with separate listing of authors and genres.
+A plugin for collecting books, comics or similar, with separate listing of authors and genres.
 
 ## Up Comming Features ##
 
