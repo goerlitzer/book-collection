@@ -51,7 +51,7 @@ function lgbc_shortcode_show_books() {
                             </a>
 
                             <div class="lgbc_zoom_icon">
-                                <img src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/zoom_icon.svg">
+                                <img src="<?php echo plugin_dir_url( __DIR__ ) ?>/img/zoom_icon.svg" alt="zoom">
                             </div>
 
 							<?php
@@ -87,8 +87,8 @@ function lgbc_shortcode_show_books() {
 						echo '<div class="lgbc_book_author_author"> by ';
 						foreach ( get_the_terms( $post_id, 'lgbc-writer' ) as $tax ) {
 
-							if ($second_loop){
-								echo ' & ' . $tax->name ;
+							if ( $second_loop ) {
+								echo ' & ' . $tax->name;
 							} else {
 								echo $tax->name;
 							}
@@ -96,7 +96,6 @@ function lgbc_shortcode_show_books() {
 
 						}
 						echo '</div>';
-
 
 
 						?>
@@ -112,8 +111,8 @@ function lgbc_shortcode_show_books() {
 							echo '<li class="lgbc_book_author_genre"> Genre: ';
 							foreach ( get_the_terms( $post_id, 'lgbc-genre' ) as $tax ) {
 
-								if ($second_loop){
-									echo ' & ' . $tax->name ;
+								if ( $second_loop ) {
+									echo ' & ' . $tax->name;
 								} else {
 									echo $tax->name;
 								}

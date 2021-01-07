@@ -1,6 +1,6 @@
 <?php
 /*
- * Lightbox für das Buchcover
+ * ###Lightbox für das Buchcover
  *
  * Frontend Design für die Bücher, Authoren und Genres
  * Soll es für die Bücher eine Vorschau geben?
