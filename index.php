@@ -94,7 +94,7 @@ function custom_post_type() {
 // Set other options for Custom Post Type
 
 	$args = array(
-		'label'               => __( 'books-collection', 'twentytwenty' ),
+		'label'               => __( 'books_collection', 'twentytwenty' ),
 		'description'         => __( 'Book Collection', 'twentytwenty' ),
 		'labels'              => $labels,
 		// Features this CPT supports in Post Editor
@@ -107,7 +107,7 @@ function custom_post_type() {
 		* is like Posts.
 		*/
 		'hierarchical'        => false,
-		'public'              => false,
+		'public'              => true,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
@@ -123,7 +123,7 @@ function custom_post_type() {
 	);
 
 	// Registering your Custom Post Type
-	register_post_type( 'books-collection', $args );
+	register_post_type( 'books_collection', $args );
 
 }
 
@@ -165,7 +165,7 @@ function wpdocs_create_book_taxonomies() {
 		'rewrite'           => array( 'slug' => 'genre' ),
 	);
 
-	register_taxonomy( 'lgbc-genre', array( 'books-collection' ), $args );
+	register_taxonomy( 'lgbc-genre', array( 'books_collection' ), $args );
 
 	unset( $args );
 	unset( $labels );
@@ -200,7 +200,7 @@ function wpdocs_create_book_taxonomies() {
 		'rewrite'               => array( 'slug' => 'writer' ),
 	);
 
-	register_taxonomy( 'lgbc-writer', 'books-collection', $args );
+	register_taxonomy( 'lgbc-writer', 'books_collection', $args );
 }
 
 // hook into the init action and call create_book_taxonomies when it fires
@@ -210,7 +210,7 @@ add_action( 'init', 'wpdocs_create_book_taxonomies', 0 );
 //add settings link on plugin page
 function plugin_add_settings_link( $links ) {
 
-	$settings_link = '<a href="edit.php?post_type=books-collection&page=book_collection_settings">Einstellungen</a>';
+	$settings_link = '<a href="edit.php?post_type=books_collection&page=book_collection_settings">Einstellungen</a>';
 	array_push( $links, $settings_link );
 
 	return $links;
@@ -224,9 +224,13 @@ add_filter( "plugin_action_links_$plugin", 'plugin_add_settings_link' );
 function wpb_change_title_text( $title ){
 	$screen = get_current_screen();
 
-	if  ( 'books-collection' == $screen->post_type ) {
-		$title = 'add book title';
+	if  ( 'books_collection' == $screen->post_type ) {
+		$title = 'Add book title';
 	}
 	return $title;
 }
 add_filter( 'enter_title_here', 'wpb_change_title_text' );
+
+
+
+

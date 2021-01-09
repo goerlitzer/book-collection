@@ -3,7 +3,7 @@
 add_action( "add_meta_boxes", "lgbc_books_metabox" );
 function lgbc_books_metabox() {
 
-	add_meta_box( "lgbc_books_metabox", "Buchangaben", "lgbc_book_details" ,"books-collection" );
+	add_meta_box( "lgbc_books_metabox", "Buchangaben", "lgbc_book_details" ,"books_collection" );
 }
 
 /*
@@ -31,7 +31,7 @@ function lgbc_save_book_details( $post_id ) {
 
 function lgbc_book_details( $post ) {
 
-	if ( get_post_type( get_the_ID() ) == 'books-collection' ) {
+	if ( get_post_type( get_the_ID() ) == 'books_collection' ) {
 
 		$value_book_format = get_post_meta( $post->ID, "lgbc_book_format", true );
 

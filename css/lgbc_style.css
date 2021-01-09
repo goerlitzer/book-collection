@@ -31,7 +31,7 @@ p.schniecke-klasse {
     border-radius: 6px;
 }
 
-.lgbc_book_cover img.img-fluid{
+.lgbc_book_cover img.img-fluid {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
@@ -79,4 +79,46 @@ ul.lgbc_book_details li::before {
     right: 0;
     top: 0;
     cursor: pointer;
+}
+
+@media (max-width: 575px) {
+    .lgbc_grid_0 .lgbc_book_cover {
+        flex: 100%;
+        margin-bottom: 25px;
+    }
+    .lgbc_grid_0 .lgbc_book_content {
+        flex: 100%;
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 576px) {
+    .lgbc_grid_0 .lgbc_book_cover {
+        flex: 100%;
+        margin-bottom: 25px;
+    }
+    .lgbc_grid_0 .lgbc_book_content {
+        flex: 100%;
+        padding-left: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .lgbc_grid_0 .lgbc_book_cover {
+        flex: 30%;
+        margin-bottom: 25px;
+    }
+    .lgbc_grid_0 .lgbc_book_content {
+        flex: 70%;
+        padding-left: 50px;
+    }
+}
+
+
+@media (min-width: 992px) {
+
+}
+
+@media (min-width: 1200px) {
+
 }

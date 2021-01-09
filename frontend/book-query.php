@@ -17,7 +17,7 @@ function lgbc_shortcode_show_books() {
 	echo '<div>Grid ' . $value_books_grids_desktop . '</div>';
 
 	$args = array(
-		'post_type'      => 'books-collection',
+		'post_type'      => 'books_collection',
 		'posts_per_page' => '10000',
 		'publish_status' => 'published',
 		'order'          => 'ASC',
@@ -160,7 +160,21 @@ function lgbc_shortcode_show_books() {
                         </ul>
                     </div>
 
-					<?php the_content(); ?>
+					<?php
+
+
+					echo $content_full = apply_filters( 'the_content', get_the_content() );
+
+					/*
+					$text  = $content_full;
+					$words = 50;
+					$more  = ' …';
+
+					echo $content_short = wp_trim_words( $text, $words, $more );
+
+					echo '<a class="moretag" href="' . get_permalink( $post_id ) . '"> read more</a>' */
+
+					?>
 
                 </div>
 

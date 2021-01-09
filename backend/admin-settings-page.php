@@ -16,7 +16,7 @@ add_action( 'admin_menu', 'add_book_settings_submenu' );
 function add_book_settings_submenu() {
 
 	add_submenu_page(
-		'edit.php?post_type=books-collection', //$parent_slug
+		'edit.php?post_type=books_collection', //$parent_slug
 		'Settings Book Collection',  //$page_title
 		'Settings',        //$menu_title
 		'manage_options',           //$capability
