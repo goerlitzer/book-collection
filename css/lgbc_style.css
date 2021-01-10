@@ -10,7 +10,8 @@ p.schniecke-klasse {
     display: block;
 }
 
-.lgbc_book {
+.lgbc_book,
+.lgbc_no_books_found{
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 25px;
 }
@@ -27,10 +28,17 @@ p.schniecke-klasse {
     position: relative;
 }
 
-.lgbc_grid_0 .lgbc_book_cover img {
+.lgbc_grid_0 .lgbc_book_cover img,
+.lgbc_no_books_found{
     border-radius: 6px;
 }
 
+.lgbc_no_books_found_wrapper{
+    text-align: center;
+}
+.lgbc_no_books_found{
+    display: inline-block;
+}
 .lgbc_book_cover img.img-fluid {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }

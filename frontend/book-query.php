@@ -4,11 +4,14 @@
 function lgbc_shortcode_show_books() {
 
 	?>
-	<?php if ( get_option( "books_headline" ) ) { ?>
-        <h2>
-			<?php echo get_option( "books_headline" ); ?>
-        </h2>
-	<?php } ?>
+	<?php if ( get_option( "books_headline" ) ) {
+
+	    $lgbc_output_book_query = '
+<h2>'.
+			get_option( "books_headline" )
+       . ' </h2>';
+	} ?>
+
 	<?php
 
 	$value_books_sort_by = get_option( "books_sort_by" );
@@ -27,9 +30,8 @@ function lgbc_shortcode_show_books() {
 	$the_query = new WP_Query( $args );
 
 	if ( $the_query->have_posts() ) :
+		ob_start();
 
-		// pagination here
-		// the loop
 		while ( $the_query->have_posts() ) : $the_query->the_post();
 			$post_id = get_the_ID();
 
@@ -181,14 +183,19 @@ function lgbc_shortcode_show_books() {
             </div>
 
 		<?php endwhile;
-		// end of the loop
-		// pagination here
+
+		$lgbc_output_book_query = ob_get_contents();
+		ob_end_clean();
+
+		return $lgbc_output_book_query;
 
 		wp_reset_postdata();
 
-	else : ?>
-        <p><?php _e( 'Es wurden keine Bücher gefunden.' ); ?></p>
-	<?php endif;
+	else :
+
+		 $lgbc_output_book_query .= '<div class="lgbc_no_books_found_wrapper"> <div class="lgbc_no_books_found">No books were found.</div> </div>';
+	return $lgbc_output_book_query;
+	endif;
 }
 
 add_shortcode( 'book-collection-list', 'lgbc_shortcode_show_books' );
