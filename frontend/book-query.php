@@ -6,10 +6,9 @@ function lgbc_shortcode_show_books() {
 	?>
 	<?php if ( get_option( "books_headline" ) ) {
 
-	    $lgbc_output_book_query = '
-<h2>'.
-			get_option( "books_headline" )
-       . ' </h2>';
+		$value_books_headline_align = get_option( "books_headline_align" );
+		$lgbc_output_book_query     = '<h2 style="text-align: ' . $value_books_headline_align . '">' . get_option( "books_headline" ) . ' </h2>';
+
 	} ?>
 
 	<?php
@@ -184,7 +183,7 @@ function lgbc_shortcode_show_books() {
 
 		<?php endwhile;
 
-		$lgbc_output_book_query = ob_get_contents();
+		$lgbc_output_book_query .= ob_get_contents();
 		ob_end_clean();
 
 		return $lgbc_output_book_query;
@@ -193,8 +192,9 @@ function lgbc_shortcode_show_books() {
 
 	else :
 
-		 $lgbc_output_book_query .= '<div class="lgbc_no_books_found_wrapper"> <div class="lgbc_no_books_found">No books were found.</div> </div>';
-	return $lgbc_output_book_query;
+		$lgbc_output_book_query .= '<div class="lgbc_no_books_found_wrapper"> <div class="lgbc_no_books_found">No books were found.</div> </div>';
+
+		return $lgbc_output_book_query;
 	endif;
 }
 

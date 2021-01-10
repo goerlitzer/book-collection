@@ -37,11 +37,13 @@ function lgbc_admin_settings_option() {
 	add_settings_section( "lgbc_display_settings_section", "Display settings", "", "book_collection_settings" );
 
 	register_setting( "lgbc_general_settings", "books_headline" );
+	register_setting( "lgbc_general_settings", "books_headline_align" );
 	register_setting( "lgbc_general_settings", "books_sort_by" );
 	register_setting( "lgbc_general_settings", "books_grids_desktop" );
 	register_setting( "lgbc_general_settings", "books_color_book_headline" );
 
 	add_settings_field( "lgbc_books_headline_field", "Headline book collection: <br> <span class='lgbc_settings_note'>(optional)</span>", "lgbc_book_headline", "book_collection_settings", "lgbc_general_settings_section" );
+	add_settings_field( "lgbc_books_headline_align_field", "Headline align:", "lgbc_books_headline_align", "book_collection_settings", "lgbc_general_settings_section" );
 	add_settings_field( "lgbc_books_sort_by_field", "Sort By:", "lgbc_book_sort_by", "book_collection_settings", "lgbc_general_settings_section" );
 	add_settings_field( "lgbc_books_grids_desktop_field", "Gallary Columns (Desktop):", "lgbc_books_grids_desktop", "book_collection_settings", "lgbc_display_settings_section" );
 	add_settings_field( "lgbc_books_color_book_headline", "Color Book Headline:", "lgbc_books_color_book_headline", "book_collection_settings", "lgbc_display_settings_section" );
@@ -54,6 +56,20 @@ function lgbc_book_headline() {
     <input type="text" id="lgbc_books_headline" name="books_headline"
            value="<?php echo get_option( "books_headline" ) ?>">
 	<?php
+}
+
+function lgbc_books_headline_align() {
+
+	$value_books_headline_align = get_option( "books_headline_align" );
+
+	?>
+    <select name="books_headline_align" id="books_headline_align">
+        <option value="left" <?php selected( $value_books_headline_align, "left" ) ?> >Left</option>
+        <option value="center" <?php selected( $value_books_headline_align, "center" ) ?> >Center</option>
+        <option value="right" <?php selected( $value_books_headline_align, "right" ) ?> >Right</option>
+    </select>
+	<?php
+
 }
 
 function lgbc_book_sort_by() {
@@ -84,7 +100,7 @@ function lgbc_books_grids_desktop() {
 }
 
 function lgbc_books_color_book_headline(){
-
+    echo "Color Picker";
 }
 
 function book_collection_settings_render_page() {
