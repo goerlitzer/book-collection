@@ -7,10 +7,12 @@ v0.1 A plugin for collecting books, comics or similar, with separate listing of 
 ### General ###
 
 * Frontend design for the books, authors and genres
-* Link to between authors, genres and books
+* Responsive desgin
+* Links to between authors, genres and books
 * Custom CSS field
 * Font size adjustable for each area
-* Book sorting by authors, genre ...
+* ~~Headline align - book section~~
+* Book sorting by authors, genre and other meta informations
 * Main accent color can be set by yourself (using colorpicker), default will be #ffab00
 * Selection of font family for the headlines
 
