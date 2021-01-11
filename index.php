@@ -3,7 +3,7 @@
 /*
 Plugin Name: Books Collection
 Plugin URI: https://larsgoerlitzer.de
-Description: Bücher-Sammlung zum Sammeln von Büchern, Comics oder ähnliches, mit separater Auflistung der Authoren und Genres.
+Description: Plugin to collect books, comics or similar, with separate listing of authors and genres.
 Version: 0.1
 Author: LGdesign
 Author URI: https://larsgoerlitzer.de
