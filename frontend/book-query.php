@@ -3,11 +3,14 @@
 
 function lgbc_shortcode_show_books() {
 
+	$lgbc_output_book_query = '';
 	?>
 	<?php if ( get_option( "books_headline" ) ) {
 
 		$value_books_headline_align = get_option( "books_headline_align" );
-		$lgbc_output_book_query     = '<h2 style="text-align: ' . $value_books_headline_align . '">' . get_option( "books_headline" ) . ' </h2>';
+		$value_books_headline_size  = get_option( "books_headline_size" );
+
+		$lgbc_output_book_query = '<h2 style="text-align: ' . $value_books_headline_align . ' ; font-size:' . $value_books_headline_size . 'px  ">' . get_option( "books_headline" ) . ' </h2>';
 
 	} ?>
 
