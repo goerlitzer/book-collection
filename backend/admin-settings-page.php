@@ -62,7 +62,7 @@ function lgbc_book_headline() {
 
 function lgbc_books_headline_size(){
 	?>
-    <input type="text" id="lgbc_books_headline_size" name="books_headline_size"
+    <input type="number" id="lgbc_books_headline_size" name="books_headline_size"
            value="<?php echo get_option( "books_headline_size" ) ?>">
 	<?php
 
@@ -89,8 +89,7 @@ function lgbc_book_sort_by() {
 	?>
     <select name="books_sort_by" id="books_sort_by">
         <option value="name" <?php selected( $value_books_sort_by, "name" ) ?> >Name (default)</option>
-        <option value="author" <?php selected( $value_books_sort_by, "author" ) ?> >Author</option>
-        <option value="date" <?php selected( $value_books_sort_by, "date" ) ?> >Date</option>
+        <option value="date" <?php selected( $value_books_sort_by, "date" ) ?> >Date of Creation</option>
     </select>
 	<?php
 }
@@ -103,8 +102,8 @@ function lgbc_books_grids_desktop() {
     <select name="books_grids_desktop" id="books_grids_desktop">
         <option value="0" <?php selected( $value_books_grids_desktop, "0" ) ?> >full width (default)</option>
         <option value="2" <?php selected( $value_books_grids_desktop, "2" ) ?> >2</option>
-        <option value="3" <?php selected( $value_books_grids_desktop, "3" ) ?> >3</option>
-        <option value="4" <?php selected( $value_books_grids_desktop, "4" ) ?> >4</option>
+        <option value="3" <?php selected( $value_books_grids_desktop, "3" ) ?> >3 (comming soon)</option>
+        <option value="4" <?php selected( $value_books_grids_desktop, "4" ) ?> >4 (comming soon)</option>
     </select>
 	<?php
 }

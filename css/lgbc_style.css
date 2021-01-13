@@ -15,7 +15,11 @@ p.schniecke-klasse {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 25px;
 }
-
+/* book grid 0 */
+.lgbc_book_query_wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
 .lgbc_grid_0 {
     margin-bottom: 25px;
     border-radius: 8px;
@@ -32,7 +36,44 @@ p.schniecke-klasse {
 .lgbc_no_books_found{
     border-radius: 6px;
 }
+.lgbc_grid_0 .lgbc_book_content {
+    flex: 70%;
+    padding-left: 50px;
+}
 
+.lgbc_grid_0 .lgbc_book_content h2 {
+    margin: 0 0 5px 0;
+    font-size: 32px;
+}
+/* book grid 2 */
+.lgbc_grid_2 {
+    margin-bottom: 25px;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 49%;
+}
+.lgbc_grid_wrapper_2 .lgbc_grid_2:nth-child(even){
+    margin-left: 2%;
+}
+.lgbc_grid_2 .lgbc_book_cover {
+    flex: 30%;
+    position: relative;
+}
+
+.lgbc_grid_2 .lgbc_book_cover img{
+    border-radius: 6px;
+}
+.lgbc_grid_2 .lgbc_book_content {
+    flex: 70%;
+    padding-left: 50px;
+}
+
+.lgbc_grid_2 .lgbc_book_content h2 {
+    margin: 0 0 5px 0;
+    font-size: 32px;
+}
+/* end grid */
 .lgbc_no_books_found_wrapper{
     text-align: center;
 }
@@ -43,15 +84,7 @@ p.schniecke-klasse {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
-.lgbc_grid_0 .lgbc_book_content {
-    flex: 70%;
-    padding-left: 50px;
-}
 
-.lgbc_grid_0 .lgbc_book_content h2 {
-    margin: 0 0 5px 0;
-    font-size: 32px;
-}
 
 .lgbc_book_author {
     display: flex;

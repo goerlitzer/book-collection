@@ -21,6 +21,8 @@ function lgbc_shortcode_show_books() {
 	$value_books_grids_desktop = get_option( "books_grids_desktop" );
 	echo '<div>Grid ' . $value_books_grids_desktop . '</div>';
 
+	$lgbc_output_book_query .= '<div class="lgbc_book_query_wrapper lgbc_grid_wrapper_' . $value_books_grids_desktop .'">';
+
 	$args = array(
 		'post_type'      => 'books_collection',
 		'posts_per_page' => '10000',
@@ -39,7 +41,7 @@ function lgbc_shortcode_show_books() {
 
 			?>
 
-            <div class="lgbc_book lgbc_grid_0">
+            <div class="lgbc_book lgbc_grid_<?php echo $value_books_grids_desktop ?>">
                 <div class="lgbc_book_cover">
                     <div>
 						<?php
@@ -77,12 +79,6 @@ function lgbc_shortcode_show_books() {
 						<?php the_title(); ?>
                     </h2>
 
-                    <!--
-                    <div>
-                        Published: <span class="entry-date"><?php echo get_the_date(); ?></span>
-                    </div>
-                    -->
-
                     <div class="lgbc_book_author">
 						<?php
 
@@ -104,6 +100,10 @@ function lgbc_shortcode_show_books() {
 
 						?>
 
+                    </div>
+
+                    <div class="lgbc_book_author">
+                        Published: <?php echo get_the_date(); ?>
                     </div>
 
                     <div>
@@ -192,6 +192,8 @@ function lgbc_shortcode_show_books() {
 		return $lgbc_output_book_query;
 
 		wp_reset_postdata();
+
+		$lgbc_output_book_query .= '</div>';
 
 	else :
 
