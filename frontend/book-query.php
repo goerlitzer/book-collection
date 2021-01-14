@@ -21,7 +21,9 @@ function lgbc_shortcode_show_books() {
 	$value_books_grids_desktop = get_option( "books_grids_desktop" );
 	echo '<div>Grid ' . $value_books_grids_desktop . '</div>';
 
-	$lgbc_output_book_query .= '<div class="lgbc_book_query_wrapper lgbc_grid_wrapper_' . $value_books_grids_desktop .'">';
+	$lgbc_output_book_query .= '<div class="lgbc_book_query_wrapper lgbc_grid_wrapper_' . $value_books_grids_desktop . '">';
+
+	$value_book_headline_size = get_option( "book_headline_size" );
 
 	$args = array(
 		'post_type'      => 'books_collection',
@@ -41,8 +43,16 @@ function lgbc_shortcode_show_books() {
 
 			?>
 
-            <div class="lgbc_book lgbc_grid_<?php echo $value_books_grids_desktop ?>">
+            <div class="lgbc_book lgbc_clearfix lgbc_grid_<?php echo $value_books_grids_desktop ?>">
+
+				<?php if ( $value_books_grids_desktop == 2 ) { ?>
+                    <div class="lgbc_book_headline" style="font-size: <?php echo $value_book_headline_size ?>px">
+						<?php the_title(); ?>
+                    </div>
+				<?php } ?>
+
                 <div class="lgbc_book_cover">
+
                     <div>
 						<?php
 						if ( has_post_thumbnail() ) {
@@ -73,11 +83,13 @@ function lgbc_shortcode_show_books() {
 
                     </div>
                 </div>
-                <div class="lgbc_book_content">
+                <div class="lgbc_book_content ">
 
-                    <h2>
-						<?php the_title(); ?>
-                    </h2>
+					<?php if ( $value_books_grids_desktop == 0 ) { ?>
+                        <div class="lgbc_book_headline" style="font-size: <?php echo $value_book_headline_size ?>px">
+							<?php the_title(); ?>
+                        </div>
+					<?php } ?>
 
                     <div class="lgbc_book_author">
 						<?php
@@ -166,9 +178,15 @@ function lgbc_shortcode_show_books() {
 
 					<?php
 
-
-					echo $content_full = apply_filters( 'the_content', get_the_content() );
-
+					if ( $value_books_grids_desktop == 0 ) {
+						?>
+                        <div class="lgbc_book_description_text">
+							<?php
+							echo $content_full = apply_filters( 'the_content', get_the_content() );
+							?>
+                        </div>
+						<?php
+					}
 					/*
 					$text  = $content_full;
 					$words = 50;
@@ -181,6 +199,17 @@ function lgbc_shortcode_show_books() {
 					?>
 
                 </div>
+				<?php
+				if ( $value_books_grids_desktop == 2 ) {
+					?>
+                    <div class="lgbc_book_description_text">
+						<?php
+						echo $content_full = apply_filters( 'the_content', get_the_content() );
+						?>
+                    </div>
+					<?php
+				}
+				?>
 
             </div>
 

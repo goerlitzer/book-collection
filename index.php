@@ -107,7 +107,7 @@ function custom_post_type() {
 		* is like Posts.
 		*/
 		'hierarchical'        => false,
-		'public'              => true,
+		'public'              => false,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
 		'show_in_nav_menus'   => true,
