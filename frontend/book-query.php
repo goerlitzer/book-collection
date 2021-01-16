@@ -10,8 +10,6 @@ function lgbc_shortcode_show_books() {
 		$value_books_headline_align = get_option( "books_headline_align" );
 		$value_books_headline_size  = get_option( "books_headline_size" );
 
-		$value_book_headline_style  = get_option( "book_headline_style" );
-
 		$lgbc_output_book_query = '<h2 style="
 		    text-align: ' . $value_books_headline_align . ' ; 
 		    font-size:' . $value_books_headline_size . 'px ;		    
@@ -28,7 +26,18 @@ function lgbc_shortcode_show_books() {
 
 	$lgbc_output_book_query .= '<div class="lgbc_book_query_wrapper lgbc_grid_wrapper_' . $value_books_grids_desktop . '">';
 
-	$value_book_headline_size = get_option( "book_headline_size" );
+	$value_book_headline_size   = get_option( "book_headline_size" );
+	$value_book_headline_style  = get_option( "book_headline_style" );
+	$value_book_headline_family = get_option( "book_headline_family" );
+
+    switch ($value_book_headline_family) {
+	    case 0:
+		    $value_book_headline_family = "";
+		    break;
+	    case 1:
+		    $value_book_headline_family = "sans-serif";
+		    break;
+    }
 
 	$args = array(
 		'post_type'      => 'books_collection',
@@ -51,7 +60,12 @@ function lgbc_shortcode_show_books() {
             <div class="lgbc_book lgbc_clearfix lgbc_grid_<?php echo $value_books_grids_desktop ?>">
 
 				<?php if ( $value_books_grids_desktop == 2 ) { ?>
-                    <div class="lgbc_book_headline" style="font-size: <?php echo $value_book_headline_size ?>px; font-weight: <?php echo $value_book_headline_style ?>">
+                    <div class="lgbc_book_headline"
+                         style="
+                                 font-size: <?php echo $value_book_headline_size ?>px;
+                                 font-weight: <?php echo $value_book_headline_style ?>;
+                                 font-family: <?php echo $value_book_headline_family ?>;
+                                 ">
 						<?php the_title(); ?>
                     </div>
 				<?php } ?>
@@ -91,7 +105,12 @@ function lgbc_shortcode_show_books() {
                 <div class="lgbc_book_content ">
 
 					<?php if ( $value_books_grids_desktop == 0 ) { ?>
-                        <div class="lgbc_book_headline" style="font-size: <?php echo $value_book_headline_size ?>px ; font-weight: <?php echo $value_book_headline_style ?>">
+                        <div class="lgbc_book_headline"
+                             style="
+                                     font-size: <?php echo $value_book_headline_size ?>px;
+                                     font-weight: <?php echo $value_book_headline_style ?>;
+                                     font-family: <?php echo $value_book_headline_family ?>;
+                                     ">
 							<?php the_title(); ?>
                         </div>
 					<?php } ?>
