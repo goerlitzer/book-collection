@@ -11,19 +11,22 @@ p.schniecke-klasse {
 }
 
 .lgbc_book,
-.lgbc_no_books_found{
+.lgbc_no_books_found {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 25px;
 }
+
 .lgbc_clearfix:after {
     content: "";
     display: table;
     clear: both;
 }
+
 /* book grid 0 */
-.lgbc_book_query_wrapper{
+.lgbc_book_query_wrapper {
 
 }
+
 .lgbc_grid_0 {
     margin-bottom: 25px;
     border-radius: 8px;
@@ -37,9 +40,10 @@ p.schniecke-klasse {
 }
 
 .lgbc_grid_0 .lgbc_book_cover img,
-.lgbc_no_books_found{
+.lgbc_no_books_found {
     border-radius: 6px;
 }
+
 .lgbc_grid_0 .lgbc_book_content {
     display: block;
     float: left;
@@ -51,6 +55,7 @@ p.schniecke-klasse {
     margin: 0 0 5px 0;
     font-size: 32px;
 }
+
 /* book grid 2 */
 .lgbc_grid_2 {
     margin-bottom: 25px;
@@ -59,14 +64,17 @@ p.schniecke-klasse {
     float: left;
     width: 49%;
 }
-.lgbc_grid_2 .lgbc_book_headline{
+
+.lgbc_grid_2 .lgbc_book_headline {
 
     margin-top: 10px;
     margin-bottom: 20px;
 }
-.lgbc_grid_wrapper_2 .lgbc_grid_2:nth-child(even){
+
+.lgbc_grid_wrapper_2 .lgbc_grid_2:nth-child(even) {
     margin-left: 2%;
 }
+
 .lgbc_grid_2 .lgbc_book_cover {
     float: left;
     display: block;
@@ -74,9 +82,10 @@ p.schniecke-klasse {
     position: relative;
 }
 
-.lgbc_grid_2 .lgbc_book_cover img{
+.lgbc_grid_2 .lgbc_book_cover img {
     border-radius: 6px;
 }
+
 .lgbc_grid_2 .lgbc_book_content {
     float: left;
     display: block;
@@ -88,17 +97,19 @@ p.schniecke-klasse {
     margin: 0 0 5px 0;
     font-size: 32px;
 }
+
 /* end grid */
-.lgbc_no_books_found_wrapper{
+.lgbc_no_books_found_wrapper {
     text-align: center;
 }
-.lgbc_no_books_found{
+
+.lgbc_no_books_found {
     display: inline-block;
 }
+
 .lgbc_book_cover img.img-fluid {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
-
 
 
 .lgbc_book_author {
@@ -137,11 +148,34 @@ ul.lgbc_book_details li::before {
     cursor: pointer;
 }
 
+/* writer query */
+ul.lgbc_writer_query,
+ul.lgbc_genre_query{
+    padding: 0;
+    margin: 0;
+}
+
+ul.lgbc_writer_query li,
+ul.lgbc_genre_query li{
+    list-style-type: none;
+    margin: 0;
+    margin-block: 15px;
+}
+ul.lgbc_writer_query li .lgbc_books_by_author,
+ul.lgbc_genre_query li .lgbc_genre_by_author{
+    font-size: 1.5rem;
+    margin-left: 15px;
+}
+
+/* END writer query */
+
+
 @media (max-width: 575px) {
     .lgbc_grid_0 .lgbc_book_cover {
         flex: 100%;
         margin-bottom: 25px;
     }
+
     .lgbc_grid_0 .lgbc_book_content {
         flex: 100%;
         padding-left: 0;
@@ -153,6 +187,7 @@ ul.lgbc_book_details li::before {
         flex: 100%;
         margin-bottom: 25px;
     }
+
     .lgbc_grid_0 .lgbc_book_content {
         flex: 100%;
         padding-left: 0;
@@ -164,6 +199,7 @@ ul.lgbc_book_details li::before {
         flex: 30%;
         margin-bottom: 25px;
     }
+
     .lgbc_grid_0 .lgbc_book_content {
         flex: 70%;
         padding-left: 50px;

@@ -6,7 +6,7 @@ function lgbc_shortcode_show_genres() {
 	?>
     <ul>
 		<?php
-		$args      = array(
+		$args = array(
 			'taxonomy'   => 'lgbc-genre',
 			'orderby'    => 'name',
 			'order'      => 'ASC',
@@ -17,14 +17,26 @@ function lgbc_shortcode_show_genres() {
 
 		if ( ! empty( $the_query ) ) {
 			ob_start();
+			?>
 
-			foreach ( $the_query->get_terms() as $term ) {
-				if ( $term->count > 0 ) {
-					?>
-                    <li> <?php echo $term->name . ' (' . $term->count . ')' ?> </li>
-					<?php
+            <ul class="lgbc_genre_query">
+
+				<?php
+
+				foreach ( $the_query->get_terms() as $term ) {
+					if ( $term->count > 0 ) {
+						?>
+                        <li>
+							<?php echo $term->name ?> <br>
+                            <div class="lgbc_genre_by_author"> Books by this author: <?php echo $term->count ?></div>
+                        </li>
+						<?php
+					}
 				}
-			}
+				?>
+            </ul>
+
+			<?php
 
 			$lgbc_output_genre_query = ob_get_contents();
 			ob_end_clean();
