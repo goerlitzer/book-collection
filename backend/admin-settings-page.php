@@ -41,6 +41,7 @@ function lgbc_admin_settings_option() {
 	register_setting( "lgbc_general_settings", "books_headline_align" );
 	register_setting( "lgbc_general_settings", "books_sort_by" );
 	register_setting( "lgbc_general_settings", "book_headline_size" );
+	register_setting( "lgbc_general_settings", "book_headline_style" );
 	register_setting( "lgbc_general_settings", "books_grids_desktop" );
 	register_setting( "lgbc_general_settings", "books_color_book_headline" );
 
@@ -49,6 +50,7 @@ function lgbc_admin_settings_option() {
 	add_settings_field( "lgbc_books_headline_align_field", "Headline - align:", "lgbc_books_headline_align", "book_collection_settings", "lgbc_general_settings_section" );
 	add_settings_field( "lgbc_books_sort_by_field", "Books sort by:", "lgbc_book_sort_by", "book_collection_settings", "lgbc_general_settings_section" );
 	add_settings_field( "lgbc_book_headline_size_field", "Book headline size:", "lgbc_book_headline_size", "book_collection_settings", "lgbc_general_settings_section" );
+	add_settings_field( "lgbc_book_headline_style_field", "Book headline style:", "lgbc_book_headline_style", "book_collection_settings", "lgbc_general_settings_section" );
 	add_settings_field( "lgbc_books_grids_desktop_field", "Gallary Columns (Desktop):", "lgbc_books_grids_desktop", "book_collection_settings", "lgbc_display_settings_section" );
 	add_settings_field( "lgbc_books_color_book_headline", "Color Book Headline:", "lgbc_books_color_book_headline", "book_collection_settings", "lgbc_display_settings_section" );
 
@@ -100,6 +102,19 @@ function lgbc_book_headline_size(){
     <input type="number" id="lgbc_book_headline_size" name="book_headline_size"
            value="<?php echo get_option( "book_headline_size" ) ?>">
 	<?php
+}
+
+function lgbc_book_headline_style(){
+
+	$value_book_headline_style = get_option( "book_headline_style" );
+
+	?>
+    <select name="book_headline_style" id="book_headline_style">
+        <option value="normal" <?php selected( $value_book_headline_style, "normal" ) ?> >Normal</option>
+        <option value="bold" <?php selected( $value_book_headline_style, "bold" ) ?> >Bold</option>
+    </select>
+	<?php
+
 }
 
 function lgbc_books_grids_desktop() {

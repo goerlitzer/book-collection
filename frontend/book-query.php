@@ -10,7 +10,12 @@ function lgbc_shortcode_show_books() {
 		$value_books_headline_align = get_option( "books_headline_align" );
 		$value_books_headline_size  = get_option( "books_headline_size" );
 
-		$lgbc_output_book_query = '<h2 style="text-align: ' . $value_books_headline_align . ' ; font-size:' . $value_books_headline_size . 'px  ">' . get_option( "books_headline" ) . ' </h2>';
+		$value_book_headline_style  = get_option( "book_headline_style" );
+
+		$lgbc_output_book_query = '<h2 style="
+		    text-align: ' . $value_books_headline_align . ' ; 
+		    font-size:' . $value_books_headline_size . 'px ;		    
+		    ">' . get_option( "books_headline" ) . ' </h2>';
 
 	} ?>
 
@@ -46,7 +51,7 @@ function lgbc_shortcode_show_books() {
             <div class="lgbc_book lgbc_clearfix lgbc_grid_<?php echo $value_books_grids_desktop ?>">
 
 				<?php if ( $value_books_grids_desktop == 2 ) { ?>
-                    <div class="lgbc_book_headline" style="font-size: <?php echo $value_book_headline_size ?>px">
+                    <div class="lgbc_book_headline" style="font-size: <?php echo $value_book_headline_size ?>px; font-weight: <?php echo $value_book_headline_style ?>">
 						<?php the_title(); ?>
                     </div>
 				<?php } ?>
@@ -86,7 +91,7 @@ function lgbc_shortcode_show_books() {
                 <div class="lgbc_book_content ">
 
 					<?php if ( $value_books_grids_desktop == 0 ) { ?>
-                        <div class="lgbc_book_headline" style="font-size: <?php echo $value_book_headline_size ?>px">
+                        <div class="lgbc_book_headline" style="font-size: <?php echo $value_book_headline_size ?>px ; font-weight: <?php echo $value_book_headline_style ?>">
 							<?php the_title(); ?>
                         </div>
 					<?php } ?>
