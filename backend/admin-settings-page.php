@@ -54,7 +54,7 @@ function lgbc_admin_settings_option() {
 	add_settings_field( "lgbc_book_headline_style_field", "Book headline font style:", "lgbc_book_headline_style", "book_collection_settings", "lgbc_general_settings_section" );
 	add_settings_field( "lgbc_book_headline_family_field", "Book headline font family:", "lgbc_book_headline_family", "book_collection_settings", "lgbc_general_settings_section" );
 	add_settings_field( "lgbc_books_grids_desktop_field", "Gallary Columns (Desktop):", "lgbc_books_grids_desktop", "book_collection_settings", "lgbc_display_settings_section" );
-	add_settings_field( "lgbc_books_color_book_headline", "Color Book Headline:", "lgbc_books_color_book_headline", "book_collection_settings", "lgbc_display_settings_section" );
+	add_settings_field( "lgbc_books_color_book_headline", "Color Book Headline: <br> <span class='lgbc_settings_note'>Hex-Color</span>", "lgbc_books_color_book_headline", "book_collection_settings", "lgbc_display_settings_section" );
 
 
 }
@@ -145,7 +145,10 @@ function lgbc_books_grids_desktop() {
 }
 
 function lgbc_books_color_book_headline(){
-    echo "Color Picker";
+	?>
+    <input type="text" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" placeholder="#000000"  id="books_color_book_headline" name="books_color_book_headline"
+           value="<?php echo get_option( "books_color_book_headline" ) ?>">
+	<?php
 }
 
 function book_collection_settings_render_page() {

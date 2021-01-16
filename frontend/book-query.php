@@ -29,6 +29,7 @@ function lgbc_shortcode_show_books() {
 	$value_book_headline_size   = get_option( "book_headline_size" );
 	$value_book_headline_style  = get_option( "book_headline_style" );
 	$value_book_headline_family = get_option( "book_headline_family" );
+	$value_book_headline_color = get_option( "books_color_book_headline" );
 
     switch ($value_book_headline_family) {
 	    case 0:
@@ -65,6 +66,7 @@ function lgbc_shortcode_show_books() {
                                  font-size: <?php echo $value_book_headline_size ?>px;
                                  font-weight: <?php echo $value_book_headline_style ?>;
                                  font-family: <?php echo $value_book_headline_family ?>;
+                                 color: <?php echo $value_book_headline_color ?>;
                                  ">
 						<?php the_title(); ?>
                     </div>
@@ -110,6 +112,7 @@ function lgbc_shortcode_show_books() {
                                      font-size: <?php echo $value_book_headline_size ?>px;
                                      font-weight: <?php echo $value_book_headline_style ?>;
                                      font-family: <?php echo $value_book_headline_family ?>;
+                                     color: <?php echo $value_book_headline_color ?>;
                                      ">
 							<?php the_title(); ?>
                         </div>
