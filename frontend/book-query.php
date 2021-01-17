@@ -19,26 +19,23 @@ function lgbc_shortcode_show_books() {
 
 	<?php
 
-	$value_books_sort_by = get_option( "books_sort_by" );
-
 	$value_books_grids_desktop = get_option( "books_grids_desktop" );
-	echo '<div>Grid ' . $value_books_grids_desktop . '</div>';
+	$lgbc_output_book_query    .= '<div class="lgbc_book_query_wrapper lgbc_grid_wrapper_' . $value_books_grids_desktop . '">';
 
-	$lgbc_output_book_query .= '<div class="lgbc_book_query_wrapper lgbc_grid_wrapper_' . $value_books_grids_desktop . '">';
-
+	$value_books_sort_by        = get_option( "books_sort_by" );
 	$value_book_headline_size   = get_option( "book_headline_size" );
 	$value_book_headline_style  = get_option( "book_headline_style" );
 	$value_book_headline_family = get_option( "book_headline_family" );
-	$value_book_headline_color = get_option( "books_color_book_headline" );
+	$value_book_headline_color  = get_option( "books_color_book_headline" );
 
-    switch ($value_book_headline_family) {
-	    case 0:
-		    $value_book_headline_family = "";
-		    break;
-	    case 1:
-		    $value_book_headline_family = "sans-serif";
-		    break;
-    }
+	switch ( $value_book_headline_family ) {
+		case 0:
+			$value_book_headline_family = "";
+			break;
+		case 1:
+			$value_book_headline_family = "sans-serif";
+			break;
+	}
 
 	$args = array(
 		'post_type'      => 'books_collection',

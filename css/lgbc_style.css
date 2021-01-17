@@ -151,8 +151,8 @@ ul.lgbc_book_details li::before {
 /* writer query */
 ul.lgbc_writer_query,
 ul.lgbc_genre_query{
-    padding: 0;
-    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 ul.lgbc_writer_query li,
@@ -172,12 +172,12 @@ ul.lgbc_genre_query li .lgbc_genre_by_author{
 
 @media (max-width: 575px) {
     .lgbc_grid_0 .lgbc_book_cover {
-        flex: 100%;
+        width: 100%;
         margin-bottom: 25px;
     }
 
     .lgbc_grid_0 .lgbc_book_content {
-        flex: 100%;
+        width: 100%;
         padding-left: 0;
     }
 }

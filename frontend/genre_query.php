@@ -3,60 +3,52 @@
 function lgbc_shortcode_show_genres() {
 
 
-	?>
-    <ul>
-		<?php
-		$args = array(
-			'taxonomy'   => 'lgbc-genre',
-			'orderby'    => 'name',
-			'order'      => 'ASC',
-			'hide_empty' => false,
-		);
+	$args = array(
+		'taxonomy'   => 'lgbc-genre',
+		'orderby'    => 'name',
+		'order'      => 'ASC',
+		'hide_empty' => false,
+	);
 
-		$the_query = new WP_Term_Query( $args );
+	$the_query = new WP_Term_Query( $args );
 
-		if ( ! empty( $the_query ) ) {
-			ob_start();
-			?>
+	if ( ! empty( $the_query ) ) {
+		ob_start();
+		?>
 
-            <ul class="lgbc_genre_query">
-
-				<?php
-
-				foreach ( $the_query->get_terms() as $term ) {
-					if ( $term->count > 0 ) {
-						?>
-                        <li>
-							<?php echo $term->name ?> <br>
-                            <div class="lgbc_genre_by_author"> Books by this author: <?php echo $term->count ?></div>
-                        </li>
-						<?php
-					}
-				}
-				?>
-            </ul>
+        <ul class="lgbc_genre_query">
 
 			<?php
 
-			$lgbc_output_genre_query = ob_get_contents();
-			ob_end_clean();
+			foreach ( $the_query->get_terms() as $term ) {
+				if ( $term->count > 0 ) {
+					?>
+                    <li>
+						<?php echo $term->name ?> <br>
+                        <div class="lgbc_genre_by_author"> Books by this author: <?php echo $term->count ?></div>
+                    </li>
+					<?php
+				}
+			}
+			?>
+        </ul>
 
-			return $lgbc_output_genre_query;
+		<?php
 
-			wp_reset_postdata();
+		$lgbc_output_genre_query = ob_get_contents();
+		ob_end_clean();
 
-		} else {
+		return $lgbc_output_genre_query;
 
-			$lgbc_output_book_query = '<div class="lgbc_no_books_found_wrapper"> <div class="lgbc_no_books_found">There are no genres.</div> </div>';
+		wp_reset_postdata();
 
-			return $lgbc_output_book_query;
+	} else {
 
-		}
+		$lgbc_output_book_query = '<div class="lgbc_no_books_found_wrapper"> <div class="lgbc_no_books_found">There are no genres.</div> </div>';
 
-		?>
-    </ul>
+		return $lgbc_output_book_query;
 
-	<?php
+	}
 
 
 }

@@ -137,9 +137,11 @@ function lgbc_books_grids_desktop() {
 	?>
     <select name="books_grids_desktop" id="books_grids_desktop">
         <option value="0" <?php selected( $value_books_grids_desktop, "0" ) ?> >Full width (default)</option>
+        <!--
         <option value="2" <?php selected( $value_books_grids_desktop, "2" ) ?> >2</option>
         <option value="3" <?php selected( $value_books_grids_desktop, "3" ) ?> >3 (comming soon)</option>
         <option value="4" <?php selected( $value_books_grids_desktop, "4" ) ?> >4 (comming soon)</option>
+        -->
     </select>
 	<?php
 }
@@ -160,7 +162,7 @@ function book_collection_settings_render_page() {
 
         <h1>Settings - Book Collection</h1>
 
-        <p>by Lars Görlitzer <?php echo 'v' . LGBC_VERSION ?> </p>
+        <p>by Lars Görlitzer <?php echo LGBC_VERSION ?> </p>
 
     </div>
 

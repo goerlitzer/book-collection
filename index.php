@@ -1,10 +1,10 @@
 <?php
 
 /*
-Plugin Name: Books Collection
+Plugin Name: Book Collection
 Plugin URI: https://larsgoerlitzer.de
-Description: Plugin to collect books, comics or similar, with separate listing of authors and genres.
-Version: 0.1
+Description: Plugin to collect books, comics or similar, with separate listing of writers and genres.
+Version: 0.1-alpha
 Author: LGdesign
 Author URI: https://larsgoerlitzer.de
 License: A "Slug" license name e.g. GPL2
@@ -26,7 +26,7 @@ if ( ! defined( 'ABSPATH' ) ) die( 'Nope' );
 ///Throw out if unallowed access
 
 // Defining constants
-if( ! defined( 'LGBC_VERSION' ) ) define( 'LGBC_VERSION', '0.1' );
+if( ! defined( 'LGBC_VERSION' ) ) define( 'LGBC_VERSION', 'v0.1-alpha' );
 if( ! defined( 'LGBC_MENU_POSITION' ) ) define( 'LGBC_MENU_POSITION', 30 );
 if( ! defined( 'LGBC_PLUGIN_DIR' ) ) define( 'LGBC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 //if( ! defined( 'LGBC_PLUGIN_URI' ) ) define( 'LGBC_PLUGIN_URI', plugins_url( '', __FILE__ ) );
