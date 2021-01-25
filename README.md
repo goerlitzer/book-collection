@@ -2,7 +2,7 @@
 
 A plugin for collecting books, comics or similar, with separate listing of authors and genres.
 
-Download: <a href="https://github.com/goerlitzer/book-collection/archive/v0.1-alpha.zip">Book Collection v0.1-alpha</a> 
+Download: <a href="https://github.com/goerlitzer/book-collection/archive/0.2.zip">Book Collection v0.1-alpha</a> 
 
 ## Usage - shortcode ##
 
