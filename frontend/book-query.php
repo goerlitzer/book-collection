@@ -1,5 +1,4 @@
 <?php
-// >> Create Shortcode to Display Movies Post Types
 
 function lgbc_shortcode_show_books() {
 
@@ -211,14 +210,6 @@ function lgbc_shortcode_show_books() {
                         </div>
 						<?php
 					}
-					/*
-					$text  = $content_full;
-					$words = 50;
-					$more  = ' …';
-
-					echo $content_short = wp_trim_words( $text, $words, $more );
-
-					echo '<a class="moretag" href="' . get_permalink( $post_id ) . '"> read more</a>' */
 
 					?>
 

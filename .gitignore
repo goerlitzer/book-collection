@@ -22,5 +22,4 @@ node_modules/
 *.sql
 *.sqlite
 *.idea
-book_collection_design.sketch
-plugin_development_notes
+plugin_ideas/*

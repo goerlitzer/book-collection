@@ -1,10 +1,10 @@
 === Book Collection ===
 Contributors: larsgoerlitzer
 Tags: collection, books, comics, newspapers, writers, generes, list
-Requires at least: 5.0
+Requires at least: 0.2
 Tested up to: 5.6
 Requires PHP: 7.2
-Stable tag: 4.3
+Stable tag: 0.2
 License:  GPL-3.0
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 

@@ -3,13 +3,10 @@
 add_action( "add_meta_boxes", "lgbc_books_metabox" );
 function lgbc_books_metabox() {
 
-	add_meta_box( "lgbc_books_metabox", "Buchangaben", "lgbc_book_details" ,"books_collection" );
+	add_meta_box( "lgbc_books_metabox", "Buchangaben", "lgbc_book_details", "books_collection" );
 }
 
-/*
- * save meta box with foreach
- * https://metabox.io/how-to-create-custom-meta-boxes-custom-fields-in-wordpress/
- */
+
 add_action( "save_post", "lgbc_save_book_details" );
 function lgbc_save_book_details( $post_id ) {
 	if ( array_key_exists( "lgbc_book_format", $_POST ) ) {
@@ -76,20 +73,3 @@ function lgbc_book_details( $post ) {
 
 
 }
-
-/*
- *  #Book Name
-    #Book Details
-    #Book Format
-    #Author
-    #Genre
-    #Published On
-    #Publisher
-    Download URL (for e-book)
-
-Einband 	gebundene Ausgabe
-#Seitenzahl 	319
-#Erscheinungsdatum 	August 2006
-#Sprache 	Deutsch
-ISBN
- */

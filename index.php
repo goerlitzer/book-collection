@@ -4,43 +4,35 @@
 Plugin Name: Book Collection
 Plugin URI: https://larsgoerlitzer.de
 Description: Plugin to collect books, comics or similar, with separate listing of writers and genres.
-Version: 0.1-alpha
+Version: 0.2
 Author: LGdesign
 Author URI: https://larsgoerlitzer.de
-License: A "Slug" license name e.g. GPL2
+License: GPL-3.0
 */
 
 
-//https://wordpress.org/plugins/wp-books-gallery/
-
-
-/*
- * settings page
- * https://deliciousbrains.com/create-wordpress-plugin-settings-page/
- *
- * details page
- * https://wordpress.stackexchange.com/questions/162146/plugin-view-details-link
- */
-
-if ( ! defined( 'ABSPATH' ) ) die( 'Nope' );
+if ( ! defined( 'ABSPATH' ) ) {
+	die( 'Nope' );
+}
 ///Throw out if unallowed access
 
 // Defining constants
-if( ! defined( 'LGBC_VERSION' ) ) define( 'LGBC_VERSION', 'v0.1-alpha' );
-if( ! defined( 'LGBC_MENU_POSITION' ) ) define( 'LGBC_MENU_POSITION', 30 );
-if( ! defined( 'LGBC_PLUGIN_DIR' ) ) define( 'LGBC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-//if( ! defined( 'LGBC_PLUGIN_URI' ) ) define( 'LGBC_PLUGIN_URI', plugins_url( '', __FILE__ ) );
-//if( ! defined( 'LGBC_FILES_DIR' ) ) define( 'LGBC_FILES_DIR', LGBC_PLUGIN_DIR );
-//if( ! defined( 'LGBC_FILES_URI' ) ) define( 'LGBC_FILES_URI', LGBC_PLUGIN_URI );
+if ( ! defined( 'LGBC_VERSION' ) ) {
+	define( 'LGBC_VERSION', 'v0.2' );
+}
+if ( ! defined( 'LGBC_MENU_POSITION' ) ) {
+	define( 'LGBC_MENU_POSITION', 30 );
+}
+if ( ! defined( 'LGBC_PLUGIN_DIR' ) ) {
+	define( 'LGBC_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+}
+
 
 require_once LGBC_PLUGIN_DIR . '/frontend/book-query.php';
 require_once LGBC_PLUGIN_DIR . '/frontend/writer_query.php';
 require_once LGBC_PLUGIN_DIR . '/frontend/genre_query.php';
 require_once LGBC_PLUGIN_DIR . '/backend/admin-settings-page.php';
 require_once LGBC_PLUGIN_DIR . '/backend/edit_post.php';
-
-
-
 
 
 //load frontend scripts
@@ -51,9 +43,9 @@ function add_scripts() {
 	wp_enqueue_style( "lgbc_style", plugins_url( "css/lgbc_style.css", __FILE__ ), "", null );
 	wp_enqueue_style( "lgbc_style_ekko-lightbox", plugins_url( "css/lgbc_ekko-lightbox.css", __FILE__ ), "", null );
 	wp_enqueue_style( "lgbc_style_bootstrap", plugins_url( "css/lgbc_bootstrap.min.css", __FILE__ ), "", null );
+
 	//js
-	wp_enqueue_script( "lgbc_script_jq", plugins_url( "js/lgbc_query-3.5.1.min.js", __FILE__ ), "", null );
-	wp_enqueue_script( "lgbc_script_propper", plugins_url( "js/lgbc_popper.min.js", __FILE__ ), "", null );
+	wp_enqueue_script( "jquery" );
 	wp_enqueue_script( "lgbc_script_bootstrap", plugins_url( "js/lgbc_bootstrap.min.js", __FILE__ ), "", null );
 	wp_enqueue_script( "lgbc_script", plugins_url( "js/lgbc_script.js", __FILE__ ), "", null );
 	wp_enqueue_script( "lgbc_script_ekko_lightbox", plugins_url( "js/lgbc_ekko-lightbox.js", __FILE__ ), "", null );
@@ -67,8 +59,6 @@ function load_custom_wp_admin_style() {
 	wp_enqueue_style( "lgbc_admin_style", plugins_url( "css/lgbc_admin_style.css", __FILE__ ), "", null );
 }
 
-
-//CPT
 
 function custom_post_type() {
 
@@ -210,7 +200,7 @@ add_action( 'init', 'wpdocs_create_book_taxonomies', 0 );
 //add settings link on plugin page
 function plugin_add_settings_link( $links ) {
 
-	$settings_link = '<a href="edit.php?post_type=books_collection&page=book_collection_settings">Einstellungen</a>';
+	$settings_link = '<a href="edit.php?post_type=books_collection&page=book_collection_settings">Settings</a>';
 	array_push( $links, $settings_link );
 
 	return $links;
@@ -221,16 +211,14 @@ add_filter( "plugin_action_links_$plugin", 'plugin_add_settings_link' );
 
 
 //Replace “Enter Title Here” Placeholder Text
-function wpb_change_title_text( $title ){
+function wpb_change_title_text( $title ) {
 	$screen = get_current_screen();
 
-	if  ( 'books_collection' == $screen->post_type ) {
+	if ( 'books_collection' == $screen->post_type ) {
 		$title = 'Add book title';
 	}
+
 	return $title;
 }
+
 add_filter( 'enter_title_here', 'wpb_change_title_text' );
-
-
-
-
