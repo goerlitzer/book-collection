@@ -2,7 +2,7 @@
 
 /*
 Plugin Name: Book Collection
-Plugin URI: https://larsgoerlitzer.de
+Plugin URI: https://github.com/goerlitzer/book-collection
 Description: Plugin to collect books, comics or similar, with separate listing of writers and genres.
 Version: 0.2
 Author: LGdesign
