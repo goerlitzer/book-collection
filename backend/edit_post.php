@@ -10,19 +10,26 @@ function lgbc_books_metabox() {
 add_action( "save_post", "lgbc_save_book_details" );
 function lgbc_save_book_details( $post_id ) {
 	if ( array_key_exists( "lgbc_book_format", $_POST ) ) {
-		update_post_meta( $post_id, "lgbc_book_format", $_POST['lgbc_book_format'] );
+		$lgbc_sanitize_book_format = sanitize_option("lgbc_book_format" , $_POST['lgbc_book_format']);
+		update_post_meta( $post_id, "lgbc_book_format", $lgbc_sanitize_book_format );
 	}
 	if ( array_key_exists( "lgbc_published_date", $_POST ) ) {
-		update_post_meta( $post_id, "lgbc_published_date", $_POST['lgbc_published_date'] );
+		$lgbc_sanitize_published_date = sanitize_text_field( $_POST['lgbc_published_date'] );
+		update_post_meta( $post_id, "lgbc_published_date", $lgbc_sanitize_published_date );
 	}
+
 	if ( array_key_exists( "lgbc_publisher", $_POST ) ) {
-		update_post_meta( $post_id, "lgbc_publisher", $_POST['lgbc_publisher'] );
+		$lgbc_sanitize_publisher = sanitize_text_field( $_POST['lgbc_publisher'] );
+		update_post_meta( $post_id, "lgbc_publisher", $lgbc_sanitize_publisher );
 	}
+
 	if ( array_key_exists( "lgbc_pages", $_POST ) ) {
-		update_post_meta( $post_id, "lgbc_pages", $_POST['lgbc_pages'] );
+		$lgbc_sanitize_pages = sanitize_text_field( $_POST['lgbc_pages'] );
+		update_post_meta( $post_id, "lgbc_pages", $lgbc_sanitize_pages );
 	}
 	if ( array_key_exists( "lgbc_isbn", $_POST ) ) {
-		update_post_meta( $post_id, "lgbc_isbn", $_POST['lgbc_isbn'] );
+		$lgbc_sanitize_isbn = sanitize_text_field( $_POST['lgbc_isbn'] );
+		update_post_meta( $post_id, "lgbc_isbn", $lgbc_sanitize_isbn );
 	}
 }
 
@@ -43,7 +50,7 @@ function lgbc_book_details( $post ) {
 
         <p class="meta-options hcf_field">
             <label class="metabox_label" for="lgbc_isbn">ISBN:</label>
-            <input id="lgbc_isbn" type="text" name="lgbc_isbn"
+            <input id="lgbc_isbn" type="number" name="lgbc_isbn"
                    value="<?php echo esc_attr( get_post_meta( get_the_ID(), 'lgbc_isbn', true ) ); ?>">
         </p>
 
